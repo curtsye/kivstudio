@@ -12,7 +12,8 @@
 
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;600;700;800&family=Unbounded:wght@400;600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
 
@@ -120,10 +121,6 @@
       line-height: 1.05;
     }
 
-    /* CONTRASTE:
-       O texto principal é maior e mais escuro,
-       enquanto a palavra importante recebe uma cor forte. */
-
     .highlight {
       background: var(--primary);
       color: white;
@@ -145,6 +142,8 @@
       border-radius: 50px;
       border: none;
       box-shadow: 4px 4px 0 var(--dark);
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn-primary-custom:hover {
@@ -159,6 +158,8 @@
       padding: .8rem 1.6rem;
       border-radius: 50px;
       border: 2px solid var(--dark);
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn-secondary-custom:hover {
@@ -176,24 +177,22 @@
       background: var(--light);
     }
 
+    .perfil-card {
+      height: 100%;
+      margin: 0 auto;
+      background: white;
+      border: 3px solid var(--dark);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 7px 7px 0 var(--dark);
 
+      display: flex;
+      flex-direction: column;
+    }
 
-.perfil-card {
-  height: 100%;
-  margin: 0 auto;
-  background: white;
-  border: 3px solid var(--dark);
-  border-radius: 24px;
-  padding: 2rem;
-  box-shadow: 7px 7px 0 var(--dark);
-
-  display: flex;
-  flex-direction: column;
-}
-
-.perfil-botao {
-  margin-top: auto;
-}
+    .perfil-botao {
+      margin-top: auto;
+    }
 
     .perfil-topo {
       text-align: center;
@@ -214,9 +213,6 @@
       font-size: 3rem;
     }
 
-    /* CONTRASTE:
-       Nome maior e mais forte que a descrição. */
-
     .perfil-nome {
       font-size: 1.8rem;
       margin-bottom: .3rem;
@@ -226,10 +222,6 @@
       color: #777;
       margin-bottom: 1.5rem;
     }
-
-    /* PROXIMIDADE:
-       As informações relacionadas ficam
-       agrupadas dentro deste bloco. */
 
     .perfil-info {
       background: var(--body-bg);
@@ -247,9 +239,6 @@
       border-bottom: none;
     }
 
-    /* REPETIÇÃO:
-       Todos os itens usam o mesmo padrão visual. */
-
     .perfil-botao {
       width: 100%;
       padding: .8rem;
@@ -266,11 +255,70 @@
 
 
     /* =====================================================
+       SEÇÃO DE TIPOGRAFIA / ARTIGO (CÓDIGO ADICIONADO)
+       ===================================================== */
+
+    #artigo {
+      padding: 6rem 0;
+    }
+
+    .controls-card {
+      background: var(--light);
+      border: 3px solid var(--dark);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 5px 5px 0 var(--dark);
+    }
+
+    .article-card {
+      background: white;
+      border: 3px solid var(--dark);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 7px 7px 0 var(--dark);
+    }
+
+    .badge-custom {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--dark);
+      font-weight: 700;
+      font-size: .8rem;
+      padding: .3rem .8rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .hierarchy-demo {
+      background: var(--body-bg);
+      border: 2px dashed var(--dark);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .demo-label {
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .demo-h1 { font-size: 2rem; font-weight: 800; }
+    .demo-h2 { font-size: 1.5rem; font-weight: 700; }
+    .demo-h3 { font-size: 1.2rem; font-weight: 600; }
+    .demo-body { font-size: 1rem; }
+    .demo-caption { font-size: .85rem; color: #666; }
+
+
+    /* =====================================================
        EXERCÍCIO 2 — TRÊS CARDS
        ===================================================== */
 
     #projetos {
       padding: 6rem 0;
+      background: var(--light);
     }
 
     .section-label {
@@ -284,14 +332,10 @@
 
     .card-projeto {
       height: 100%;
-      background: var(--light);
+      background: white;
       border: 3px solid var(--dark);
       border-radius: 20px;
       padding: 1.6rem;
-
-      /* REPETIÇÃO:
-         Os três cards possuem exatamente
-         o mesmo estilo visual. */
 
       box-shadow: 5px 5px 0 var(--dark);
       transition: .2s;
@@ -357,6 +401,10 @@
 
         <a class="nav-link" href="#perfil">
           Perfil
+        </a>
+
+        <a class="nav-link" href="#artigo">
+          Artigo
         </a>
 
         <a class="nav-link" href="#projetos">
@@ -425,87 +473,162 @@
 
 
 
-<!-- =====================================================
-     EXERCÍCIO 1 — CARDS DE PERFIL
-     Aplicação dos 4 princípios CRAP
-     ===================================================== -->
+  <!-- =====================================================
+       EXERCÍCIO 1 — CARDS DE PERFIL
+       ===================================================== -->
 
-<section id="perfil">
+  <section id="perfil">
 
-  <div class="container">
+    <div class="container">
 
-    <div class="text-center mb-5">
+      <div class="text-center mb-5">
 
-      <p class="section-label">
-      </p>
+        <p class="section-label">
+        </p>
 
-      <h2>
-        Cards de Perfil
-      </h2>
+        <h2>
+          Cards de Perfil
+        </h2>
 
-      <p>
-        Aplicação dos princípios de design visual CRAP.
-      </p>
+        <p>
+          Aplicação dos princípios de design visual CRAP.
+        </p>
+
+      </div>
+
+
+      <!-- 3 CARDS DE PERFIL -->
+
+      <div class="row g-4 justify-content-center">
+
+
+        <!-- CARD 1 -->
+        <div class="col-md-4">
+          <div class="perfil-card">
+            <div class="perfil-topo">
+              <div class="foto-perfil">🌺</div>
+              <h3 class="perfil-nome">Isadora</h3>
+              <p class="perfil-descricao">Identidade Visual</p>
+            </div>
+
+            <div class="perfil-info">
+              <div class="info-item">
+                📧 <strong>Email:</strong><br>
+                curtsyee@gmail.com
+              </div>
+              <div class="info-item">
+                📍 <strong>Localização:</strong><br>
+                São Paulo, Brasil
+              </div>
+              <div class="info-item">
+                🎨 <strong>Especialidade:</strong><br>
+                Identidade Visual
+              </div>
+            </div>
+
+            <button class="perfil-botao">Ver perfil</button>
+          </div>
+        </div>
+
+
+        <!-- CARD 2 -->
+        <div class="col-md-4">
+          <div class="perfil-card">
+            <div class="perfil-topo">
+              <div class="foto-perfil">🌸</div>
+              <h3 class="perfil-nome">Kawany</h3>
+              <p class="perfil-descricao">Designer de Artes</p>
+            </div>
+
+            <div class="perfil-info">
+              <div class="info-item">
+                📧 <strong>Email:</strong><br>
+                kawany@email.com
+              </div>
+              <div class="info-item">
+                📍 <strong>Localização:</strong><br>
+                São Paulo, Brasil
+              </div>
+              <div class="info-item">
+                💻 <strong>Especialidade:</strong><br>
+                Design de Artes
+              </div>
+            </div>
+
+            <button class="perfil-botao">Ver perfil</button>
+          </div>
+        </div>
+
+
+        <!-- CARD 3 -->
+        <div class="col-md-4">
+          <div class="perfil-card">
+            <div class="perfil-topo">
+              <div class="foto-perfil">📸</div>
+              <h3 class="perfil-nome">Renata Vitória</h3>
+              <p class="perfil-descricao">Social Media</p>
+            </div>
+
+            <div class="perfil-info">
+              <div class="info-item">
+                📧 <strong>Email:</strong><br>
+                vitoriarenatinha@email.com
+              </div>
+              <div class="info-item">
+                📍 <strong>Localização:</strong><br>
+                São Paulo, Brasil
+              </div>
+              <div class="info-item">
+                📸 <strong>Especialidade:</strong><br>
+                Social Media
+              </div>
+            </div>
+
+            <button class="perfil-botao">Ver perfil</button>
+          </div>
+        </div>
+
+      </div>
 
     </div>
 
-
-    <!-- 3 CARDS DE PERFIL -->
-
-    <div class="row g-4 justify-content-center">
+  </section>
 
 
-      <!-- =====================
-           CARD 1
-           ===================== -->
 
-      <div class="col-md-4">
+  <!-- =====================================================
+       SEÇÃO — CONTROLES E ARTIGO (TIPOGRAFIA)
+       ===================================================== -->
 
-        <div class="perfil-card">
+  <section id="artigo">
 
-          <!-- ALINHAMENTO -->
-          <div class="perfil-topo">
+    <div class="container">
 
-            <div class="foto-perfil">
-              🌺
-            </div>
+      <!-- CONTROLES DE TIPOGRAFIA -->
+      <div class="controls-card text-center mb-5">
 
-            <!-- CONTRASTE -->
-            <h3 class="perfil-nome">
-              Isadora
-            </h3>
+        <p class="section-label mb-2">Ajuste de acessibilidade</p>
 
-            <p class="perfil-descricao">
-              Identidade Visual
-            </p>
+        <h2>
+          Ajuste a tipografia
+        </h2>
 
-          </div>
+        <p>
+          Use os botões para aumentar, reduzir ou restaurar o tamanho dos textos.
+        </p>
 
+        <div class="button-group d-flex justify-content-center gap-2 flex-wrap mt-3">
 
-          <!-- PROXIMIDADE -->
-          <div class="perfil-info">
+          <button id="btn-aumentar" class="btn btn-primary-custom">
+            Aumentar texto
+          </button>
 
-            <!-- REPETIÇÃO -->
-            <div class="info-item">
-              📧 <strong>Email:</strong><br>
-              curtsyee@gmail.com
-            </div>
+          <button id="btn-reduzir" class="btn btn-secondary-custom">
+            Reduzir texto
+          </button>
 
-            <div class="info-item">
-              📍 <strong>Localização:</strong><br>
-              São Paulo, Brasil
-            </div>
-
-            <div class="info-item">
-              🎨 <strong>Especialidade:</strong><br>
-              Identidade Visual
-            </div>
-
-          </div>
-
-
-          <button class="perfil-botao">
-            Ver perfil
+          <button id="btn-reset" class="btn btn-secondary-custom">
+            Restaurar
           </button>
 
         </div>
@@ -513,133 +636,125 @@
       </div>
 
 
+      <!-- ARTIGO -->
 
-      <!-- =====================
-           CARD 2
-           ===================== -->
+      <article class="article-card">
 
-      <div class="col-md-4">
+        <header class="article-header mb-4">
 
-        <div class="perfil-card">
+          <span class="badge-custom">
+            DESIGN
+          </span>
 
-          <!-- ALINHAMENTO -->
-          <div class="perfil-topo">
+          <h2>
+            A importância da tipografia no design
+          </h2>
 
-            <div class="foto-perfil">
-              🌸
-            </div>
+          <p class="text-muted small">
+            Publicado em 14 de setembro de 2026 • Kiv Studio
+          </p>
 
-            <!-- CONTRASTE -->
-            <h3 class="perfil-nome">
-              Kawany
+        </header>
+
+
+        <section class="article-body">
+
+          <p>
+            A <strong>tipografia</strong> é uma das partes
+            mais importantes de uma página. Ela ajuda o leitor
+            a entender quais informações são mais importantes
+            e cria uma ordem visual para o conteúdo.
+          </p>
+
+
+          <h3 class="h4 mt-4">
+            1. Escolha das fontes
+          </h3>
+
+          <p>
+            Uma boa combinação de fontes pode deixar o conteúdo
+            mais agradável e fácil de ler. Neste exemplo,
+            utilizamos uma fonte sem serifa nos títulos e uma
+            fonte com serifa nos textos.
+          </p>
+
+
+          <h3 class="h4 mt-4">
+            2. Tamanho e peso
+          </h3>
+
+          <p>
+            O tamanho e o peso das letras ajudam a criar
+            <strong>contraste e hierarquia</strong>.
+            Títulos maiores chamam mais atenção, enquanto
+            textos menores funcionam como informações
+            complementares.
+          </p>
+
+
+          <!-- EXEMPLO VISUAL DA HIERARQUIA -->
+
+          <div class="hierarchy-demo">
+
+            <p class="demo-label mb-3">
+              EXEMPLO DE HIERARQUIA
+            </p>
+
+            <h1 class="demo-h1">
+              Título Principal
+            </h1>
+
+            <h2 class="demo-h2">
+              Subtítulo
+            </h2>
+
+            <h3 class="demo-h3">
+              Subtítulo menor
             </h3>
 
-            <p class="perfil-descricao">
-              Designer de Artes
+            <p class="demo-body">
+              Este é um exemplo de texto de corpo.
+              Ele possui tamanho regular e maior
+              espaço entre as linhas para facilitar
+              a leitura.
+            </p>
+
+            <p class="demo-caption">
+              Legenda — texto pequeno e secundário.
             </p>
 
           </div>
 
 
-          <!-- PROXIMIDADE -->
-          <div class="perfil-info">
+          <h3 class="h4 mt-4">
+            3. Espaçamento entre as linhas
+          </h3>
 
-            <!-- REPETIÇÃO -->
-            <div class="info-item">
-              📧 <strong>Email:</strong><br>
-              kawany@email.com
-            </div>
-
-            <div class="info-item">
-              📍 <strong>Localização:</strong><br>
-              São Paulo, Brasil
-            </div>
-
-            <div class="info-item">
-              💻 <strong>Especialidade:</strong><br>
-              Design de Artes
-            </div>
-
-          </div>
+          <p>
+            O <em>line-height</em> controla o espaço entre
+            as linhas. Um espaçamento adequado evita que
+            o texto fique apertado e melhora a experiência
+            de leitura.
+          </p>
 
 
-          <button class="perfil-botao">
-            Ver perfil
-          </button>
+          <h3 class="h4 mt-4">
+            4. Hierarquia visual
+          </h3>
 
-        </div>
+          <p>
+            Uma hierarquia bem definida permite que o usuário
+            identifique rapidamente o título, os subtítulos,
+            os parágrafos e as informações secundárias.
+          </p>
 
-      </div>
+        </section>
 
-
-
-      <!-- =====================
-           CARD 3
-           ===================== -->
-
-      <div class="col-md-4">
-
-        <div class="perfil-card">
-
-          <!-- ALINHAMENTO -->
-          <div class="perfil-topo">
-
-            <div class="foto-perfil">
-              📸
-            </div>
-
-            <!-- CONTRASTE -->
-            <h3 class="perfil-nome">
-              Renata Vitória
-            </h3>
-
-            <p class="perfil-descricao">
-              Social Media
-            </p>
-
-          </div>
-
-
-          <!-- PROXIMIDADE -->
-          <div class="perfil-info">
-
-            <!-- REPETIÇÃO -->
-            <div class="info-item">
-              📧 <strong>Email:</strong><br>
-              vitoriarenatinha@email.com
-            </div>
-
-            <div class="info-item">
-              📍 <strong>Localização:</strong><br>
-              São Paulo, Brasil
-            </div>
-
-            <div class="info-item">
-              📸 <strong>Especialidade:</strong><br>
-              Social Media
-            </div>
-
-          </div>
-
-
-          <button class="perfil-botao">
-            Ver perfil
-          </button>
-
-        </div>
-
-      </div>
-
+      </article>
 
     </div>
 
-  </div>
-
-</section>
-
-
-
-  
+  </section>
 
 
 
@@ -772,10 +887,10 @@
   </footer>
 
 
-  <!-- Bootstrap JavaScript -->
+  <!-- JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/tipografia.js"></script>
 
 </body>
 
 </html>
-```
