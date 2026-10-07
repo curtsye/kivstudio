@@ -522,6 +522,321 @@
       font-weight: 600;
     }
 
+    /* =====================================================
+       ATIVIDADE — IA QWEN RODANDO NO NAVEGADOR
+       ===================================================== */
+
+    #ia-qwen {
+      padding: 6rem 0;
+      background: var(--light);
+    }
+
+    .qwen-card {
+      background: white;
+      border: 3px solid var(--dark);
+      border-radius: 24px;
+      box-shadow: 7px 7px 0 var(--dark);
+      overflow: hidden;
+    }
+
+    .qwen-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 2px solid #e7eaf0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .qwen-title {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    #qwen-status {
+      padding: .65rem 1rem;
+      background: #f8f9fb;
+      border-bottom: 1px solid #e7eaf0;
+      color: #697386;
+      font-size: .85rem;
+    }
+
+    #qwen-status.ready {
+      color: #26734d;
+    }
+
+    #qwen-status.error {
+      color: #b42318;
+    }
+
+    #qwen-chat {
+      height: 420px;
+      overflow-y: auto;
+      padding: 1.5rem;
+      scroll-behavior: smooth;
+      background: #fff;
+    }
+
+    .qwen-welcome {
+      max-width: 620px;
+      margin: 3rem auto;
+      text-align: center;
+      color: #697386;
+    }
+
+    .qwen-message {
+      display: flex;
+      margin: 0 auto 1rem;
+      max-width: 760px;
+    }
+
+    .qwen-message.user {
+      justify-content: flex-end;
+    }
+
+    .qwen-bubble {
+      max-width: 82%;
+      padding: .75rem .95rem;
+      border-radius: 16px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .qwen-message.assistant .qwen-bubble {
+      background: #f0f2f6;
+      border-bottom-left-radius: 5px;
+    }
+
+    .qwen-message.user .qwen-bubble {
+      background: var(--dark);
+      color: white;
+      border-bottom-right-radius: 5px;
+    }
+
+    #qwen-typing {
+      display: none;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.5rem .75rem;
+      color: #697386;
+      font-size: .85rem;
+    }
+
+    #qwen-form {
+      padding: 1rem 1.5rem 1.5rem;
+      border-top: 1px solid #e7eaf0;
+      background: white;
+    }
+
+    .qwen-input-wrap {
+      max-width: 760px;
+      margin: auto;
+      display: flex;
+      gap: .6rem;
+      align-items: flex-end;
+    }
+
+    #qwen-input {
+      flex: 1;
+      resize: none;
+      min-height: 48px;
+      max-height: 140px;
+      border: 2px solid #d9dee7;
+      border-radius: 13px;
+      padding: .8rem .9rem;
+      font: inherit;
+      outline: none;
+      background: white;
+    }
+
+    #qwen-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(228, 76, 114, .12);
+    }
+
+    #qwen-send,
+    #qwen-clear {
+      height: 48px;
+      border: 0;
+      border-radius: 12px;
+      padding: 0 1rem;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    #qwen-send {
+      background: var(--dark);
+      color: white;
+    }
+
+    #qwen-clear {
+      background: white;
+      color: var(--dark);
+      border: 2px solid var(--dark);
+    }
+
+    #qwen-send:disabled,
+    #qwen-clear:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
+    .qwen-footnote {
+      max-width: 760px;
+      margin: .5rem auto 0;
+      font-size: .75rem;
+      color: #8a93a3;
+    }
+
+    @media (max-width: 600px) {
+      .qwen-header {
+        padding: 1.2rem;
+      }
+
+      #qwen-chat {
+        height: 380px;
+        padding: 1rem;
+      }
+
+      #qwen-form {
+        padding: .8rem .8rem 1rem;
+      }
+
+      .qwen-bubble {
+        max-width: 90%;
+      }
+
+      .qwen-input-wrap {
+        flex-wrap: wrap;
+      }
+
+      #qwen-input {
+        flex-basis: 100%;
+      }
+    }
+
+    /* =====================================================
+       TÓPICO 6 — HIERARQUIA VISUAL
+       ===================================================== */
+
+    #topico6-hierarquia {
+      padding: 6rem 0;
+      background: var(--body-bg);
+    }
+
+    .hierarchy-product-card {
+      background: white;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 2rem;
+      border-radius: 24px;
+      border: 3px solid var(--dark);
+      box-shadow: 7px 7px 0 var(--dark);
+    }
+
+    .hierarchy-product-card .product-tag {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: .35rem .85rem;
+      border-radius: 6px;
+      font-size: .75rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hierarchy-product-card .product-title {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: .5rem;
+    }
+
+    .hierarchy-product-card .product-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--success);
+      margin-bottom: .6rem;
+    }
+
+    .hierarchy-product-card .old-price {
+      font-size: 1rem;
+      color: #8a93a3;
+      text-decoration: line-through;
+      font-weight: 400;
+      margin-left: .4rem;
+    }
+
+    .hierarchy-product-card .product-description {
+      color: #697386;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .hierarchy-product-card .product-button {
+      width: 100%;
+      background: var(--info);
+      color: white;
+      border: 0;
+      padding: .9rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .hierarchy-product-card .product-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 0 var(--dark);
+    }
+
+    /* =====================================================
+       TÓPICO 7 — CORES
+       ===================================================== */
+
+    #topico7-cores {
+      padding: 6rem 0;
+      background: var(--light);
+    }
+
+    .color-palette {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .color-swatch {
+      width: 140px;
+      height: 140px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      text-align: center;
+      border: 3px solid var(--dark);
+      box-shadow: 5px 5px 0 var(--dark);
+      padding: .75rem;
+    }
+
+    .color-swatch.primary { background: var(--primary); }
+    .color-swatch.secondary { background: var(--secondary); color: var(--dark); }
+    .color-swatch.success { background: var(--success); color: var(--dark); }
+    .color-swatch.warning { background: #EAB308; color: #333; }
+    .color-swatch.danger { background: #EF4444; }
+    .color-swatch.neutral { background: #6B7280; }
+
+    .palette-note {
+      max-width: 700px;
+      margin: 1.5rem auto 0;
+      text-align: center;
+      color: #697386;
+    }
+
   </style>
 </head>
 
@@ -568,6 +883,18 @@
 
           <a class="nav-link" href="#projetos">
             Projetos
+          </a>
+
+          <a class="nav-link" href="#ia-qwen">
+            IA
+          </a>
+
+          <a class="nav-link" href="#topico6-hierarquia">
+            Hierarquia
+          </a>
+
+          <a class="nav-link" href="#topico7-cores">
+            Cores
           </a>
 
           <a class="btn btn-nav ms-lg-2 mt-2 mt-lg-0" href="#contato">
@@ -1005,6 +1332,114 @@
 
 
 
+
+  <!-- =====================================================
+       TÓPICO 6 — HIERARQUIA VISUAL
+       ===================================================== -->
+
+  <section id="topico6-hierarquia">
+
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <p class="section-label">Tópico 6</p>
+        <h2>Hierarquia Visual</h2>
+        <p>
+          O usuário deve saber instantaneamente o que é mais importante.
+          Tamanho, cor e posição ajudam a criar essa ordem visual.
+        </p>
+      </div>
+
+      <div class="hierarchy-product-card">
+
+        <span class="product-tag">NOVO</span>
+
+        <h3 class="product-title">
+          Curso de Web Design
+        </h3>
+
+        <p class="product-price">
+          R$ 199
+          <span class="old-price">R$ 399</span>
+        </p>
+
+        <p class="product-description">
+          Aprenda design do zero com projetos práticos e
+          desenvolva suas habilidades visuais.
+        </p>
+
+        <button
+          type="button"
+          class="product-button"
+          onclick="alert('Exemplo de botão com hierarquia visual!')"
+        >
+          Matricule-se Agora
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       TÓPICO 7 — CORES
+       ===================================================== -->
+
+  <section id="topico7-cores">
+
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <p class="section-label">Tópico 7</p>
+        <h2>Cores</h2>
+        <p>
+          Cores transmitem emoção e significado.
+          Esta paleta demonstra funções diferentes dentro de uma interface.
+        </p>
+      </div>
+
+      <div class="color-palette">
+
+        <div class="color-swatch primary">
+          Primária
+        </div>
+
+        <div class="color-swatch secondary">
+          Secundária
+        </div>
+
+        <div class="color-swatch success">
+          Sucesso
+        </div>
+
+        <div class="color-swatch warning">
+          Aviso
+        </div>
+
+        <div class="color-swatch danger">
+          Erro
+        </div>
+
+        <div class="color-swatch neutral">
+          Neutra
+        </div>
+
+      </div>
+
+      <p class="palette-note">
+        <strong>Paleta aplicada à Kiv Studio:</strong>
+        a cor primária representa a identidade da marca,
+        a secundária complementa a composição e as cores
+        semânticas comunicam estados como sucesso, aviso e erro.
+      </p>
+
+    </div>
+
+  </section>
+
+
   <!-- =====================================================
        EXERCÍCIO 2 — TRÊS CARDS (PROJETOS)
        ===================================================== -->
@@ -1107,6 +1542,88 @@
 
 
 
+
+  <!-- =====================================================
+       ATIVIDADE — CHAT IA QWEN RODANDO NO NAVEGADOR
+       ===================================================== -->
+
+  <section id="ia-qwen">
+
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <p class="section-label">Inteligência artificial</p>
+        <h2>Assistente KivIA</h2>
+        <p>
+          Converse com um pequeno modelo de linguagem executado
+          diretamente no navegador, sem API key.
+        </p>
+      </div>
+
+      <div class="qwen-card">
+
+        <div class="qwen-header">
+          <div>
+            <h3 class="qwen-title">KivIA</h3>
+            <div class="text-muted small">
+              Qwen2.5-0.5B-Instruct · processamento local
+            </div>
+          </div>
+
+          <button id="qwen-clear" type="button">
+            Limpar
+          </button>
+        </div>
+
+        <div id="qwen-status">
+          Preparando o modelo...
+        </div>
+
+        <div id="qwen-chat">
+          <div class="qwen-welcome" id="qwen-welcome">
+            <h3>Olá!</h3>
+            <p>
+              Este chat usa um pequeno modelo de linguagem executado
+              no seu navegador.
+            </p>
+            <p>
+              Na primeira vez, o modelo será baixado e depois poderá
+              ficar em cache.
+            </p>
+          </div>
+        </div>
+
+        <div id="qwen-typing">
+          IA está digitando...
+        </div>
+
+        <form id="qwen-form">
+          <div class="qwen-input-wrap">
+            <textarea
+              id="qwen-input"
+              placeholder="Digite sua pergunta..."
+              rows="1"
+              disabled
+            ></textarea>
+
+            <button id="qwen-send" type="submit" disabled>
+              Enviar
+            </button>
+          </div>
+
+          <div class="qwen-footnote">
+            O modelo tenta usar WebGPU e, caso não esteja disponível,
+            utiliza WASM/CPU.
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
   <!-- =====================================================
        SEÇÃO — CONTATO (FORMULÁRIO INTERATIVO)
        ===================================================== -->
@@ -1200,6 +1717,262 @@
 
   </footer>
 
+
+
+  <!-- JavaScript da atividade: Qwen rodando no navegador -->
+  <script type="module">
+    import { pipeline, env } from
+      "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1";
+
+    env.allowRemoteModels = true;
+    env.allowLocalModels = false;
+
+    const QWEN_MODEL = "onnx-community/Qwen2.5-0.5B-Instruct";
+
+    const qwenChat = document.getElementById("qwen-chat");
+    const qwenWelcome = document.getElementById("qwen-welcome");
+    const qwenStatus = document.getElementById("qwen-status");
+    const qwenForm = document.getElementById("qwen-form");
+    const qwenInput = document.getElementById("qwen-input");
+    const qwenSend = document.getElementById("qwen-send");
+    const qwenClear = document.getElementById("qwen-clear");
+    const qwenTyping = document.getElementById("qwen-typing");
+
+    let qwenGenerator = null;
+
+    let qwenMessages = [
+      {
+        role: "system",
+        content:
+          "Você é o assistente virtual da Kiv Studio. " +
+          "Responda sempre em português do Brasil, de forma clara, " +
+          "prestativa e concisa. A Kiv Studio é um estúdio de design " +
+          "voltado para mulheres microempreendedoras."
+      }
+    ];
+
+    function qwenSetStatus(text, type = "") {
+      qwenStatus.textContent = text;
+      qwenStatus.className = type;
+    }
+
+    function qwenAddMessage(role, text) {
+      if (qwenWelcome) {
+        qwenWelcome.style.display = "none";
+      }
+
+      const row = document.createElement("div");
+      row.className = `qwen-message ${role}`;
+
+      const bubble = document.createElement("div");
+      bubble.className = "qwen-bubble";
+      bubble.textContent = text;
+
+      row.appendChild(bubble);
+      qwenChat.appendChild(row);
+      qwenChat.scrollTop = qwenChat.scrollHeight;
+
+      return bubble;
+    }
+
+    async function qwenHasWebGPU() {
+      try {
+        if (!("gpu" in navigator)) return false;
+
+        const adapter = await navigator.gpu.requestAdapter();
+        return !!adapter;
+      } catch {
+        return false;
+      }
+    }
+
+    function qwenReady(label) {
+      qwenSetStatus("Modelo pronto · " + label, "ready");
+      qwenInput.disabled = false;
+      qwenSend.disabled = false;
+      qwenInput.focus();
+    }
+
+    function qwenProgress(progress) {
+      if (
+        progress.status === "progress" &&
+        typeof progress.progress === "number"
+      ) {
+        qwenSetStatus(
+          "Baixando modelo... " +
+          Math.round(progress.progress) +
+          "%"
+        );
+      }
+    }
+
+    async function qwenLoadModel() {
+      qwenSetStatus(
+        "Baixando/carregando o modelo... isso pode demorar na primeira vez."
+      );
+
+      if (await qwenHasWebGPU()) {
+        try {
+          qwenGenerator = await pipeline(
+            "text-generation",
+            QWEN_MODEL,
+            {
+              device: "webgpu",
+              dtype: "q4",
+              progress_callback: qwenProgress
+            }
+          );
+
+          qwenReady("WebGPU");
+          return;
+        } catch (error) {
+          console.warn(
+            "WebGPU falhou, usando WASM/CPU:",
+            error
+          );
+        }
+      }
+
+      try {
+        qwenSetStatus("Carregando em modo WASM/CPU...");
+
+        qwenGenerator = await pipeline(
+          "text-generation",
+          QWEN_MODEL,
+          {
+            device: "wasm",
+            dtype: "int8",
+            progress_callback: qwenProgress
+          }
+        );
+
+        qwenReady("WASM/CPU");
+      } catch (error) {
+        console.error(error);
+
+        qwenSetStatus(
+          "Erro ao carregar o modelo: " +
+          (error?.message || error),
+          "error"
+        );
+      }
+    }
+
+    async function qwenGenerate(userText) {
+      qwenMessages.push({
+        role: "user",
+        content: userText
+      });
+
+      qwenTyping.style.display = "block";
+      qwenSend.disabled = true;
+      qwenInput.disabled = true;
+
+      try {
+        const output = await qwenGenerator(qwenMessages, {
+          max_new_tokens: 256,
+          repetition_penalty: 1.1,
+          temperature: 0.7,
+          top_p: 0.9,
+          do_sample: true
+        });
+
+        const generated = output?.[0]?.generated_text;
+
+        let answer = "";
+
+        if (Array.isArray(generated)) {
+          const last = generated[generated.length - 1];
+
+          answer =
+            typeof last === "string"
+              ? last
+              : last?.content || "";
+        } else {
+          answer = String(generated || "");
+        }
+
+        answer = answer.trim();
+
+        if (!answer) {
+          answer = "Não consegui gerar uma resposta.";
+        }
+
+        qwenMessages.push({
+          role: "assistant",
+          content: answer
+        });
+
+        qwenAddMessage("assistant", answer);
+
+      } catch (error) {
+        console.error(error);
+
+        qwenMessages.pop();
+
+        qwenAddMessage(
+          "assistant",
+          "Ocorreu um erro ao gerar a resposta. " +
+          "Veja o Console do navegador."
+        );
+      } finally {
+        qwenTyping.style.display = "none";
+        qwenSend.disabled = false;
+        qwenInput.disabled = false;
+        qwenInput.focus();
+      }
+    }
+
+    qwenForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const text = qwenInput.value.trim();
+
+      if (!text || !qwenGenerator) return;
+
+      qwenAddMessage("user", text);
+
+      qwenInput.value = "";
+      qwenInput.style.height = "48px";
+
+      await qwenGenerate(text);
+    });
+
+    qwenInput.addEventListener("input", () => {
+      qwenInput.style.height = "48px";
+      qwenInput.style.height =
+        Math.min(qwenInput.scrollHeight, 140) + "px";
+    });
+
+    qwenInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        qwenForm.requestSubmit();
+      }
+    });
+
+    qwenClear.addEventListener("click", () => {
+      qwenMessages = [
+        {
+          role: "system",
+          content:
+            "Você é o assistente virtual da Kiv Studio. " +
+            "Responda sempre em português do Brasil, de forma clara, " +
+            "prestativa e concisa. A Kiv Studio é um estúdio de design " +
+            "voltado para mulheres microempreendedoras."
+        }
+      ];
+
+      qwenChat.innerHTML = "";
+      qwenChat.appendChild(qwenWelcome);
+
+      qwenWelcome.style.display = "block";
+      qwenInput.value = "";
+      qwenInput.focus();
+    });
+
+    qwenLoadModel();
+  </script>
 
   <!-- JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
