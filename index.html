@@ -15,843 +15,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;600;700;800&family=Unbounded:wght@400;600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-
-    /* =====================================================
-       CONFIGURAÇÕES GERAIS E SCROLL SUAVE
-       ===================================================== */
-
-    :root {
-      --primary: #E44C72;
-      --secondary: #FFAF22;
-      --success: #8DCD0C;
-      --info: #720CCB;
-      --body-bg: #FFEEDC;
-      --body-color: #2D323B;
-      --dark: #2D323B;
-      --light: #fdf5ec;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--body-bg);
-      color: var(--body-color);
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      line-height: 1.6;
-      padding-top: 90px; /* Compensação da navbar fixa */
-    }
-
-    /* Evita que o conteúdo das seções fique sob a navbar fixa ao rolar */
-    section[id], footer[id] {
-      scroll-margin-top: 90px;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: 'Unbounded', sans-serif;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-    }
-
-
-    /* =====================================================
-       EXERCÍCIO 2 — HEADER (NAVBAR FIXA)
-       ===================================================== */
-
-    .navbar-custom {
-      background: var(--body-bg);
-      border-bottom: 3px solid var(--dark);
-      padding: 1rem 0;
-    }
-
-    .navbar-brand {
-      font-family: 'Unbounded', sans-serif;
-      font-weight: 900;
-      font-size: 1.4rem;
-      color: var(--dark) !important;
-    }
-
-    .navbar-brand span {
-      color: var(--primary);
-    }
-
-    .nav-link {
-      font-weight: 600;
-      color: var(--dark) !important;
-      margin: 0 .35rem;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      color: var(--primary) !important;
-    }
-
-    .btn-nav {
-      background: var(--dark);
-      color: white;
-      font-weight: 700;
-      border-radius: 50px;
-      padding: .5rem 1.3rem;
-      border: 2px solid var(--dark);
-    }
-
-    .btn-nav:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: white;
-    }
-
-
-    /* =====================================================
-       EXERCÍCIO 2 — HERO
-       ===================================================== */
-
-    .hero {
-      padding: 4rem 0;
-      position: relative;
-      overflow: hidden;
-      min-height: 80vh;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 5vw + 1rem, 4.2rem);
-      line-height: 1.05;
-    }
-
-    .highlight {
-      background: var(--primary);
-      color: white;
-      padding: 0 .3rem;
-      border-radius: 6px;
-    }
-
-    .hero p {
-      max-width: 600px;
-      font-size: 1.15rem;
-      color: #4a3f52;
-    }
-
-    .btn-primary-custom {
-      background: var(--primary);
-      color: white;
-      font-weight: 700;
-      padding: .85rem 1.8rem;
-      border-radius: 50px;
-      border: none;
-      box-shadow: 4px 4px 0 var(--dark);
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-primary-custom:hover {
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary-custom {
-      background: transparent;
-      color: var(--dark);
-      font-weight: 700;
-      padding: .8rem 1.6rem;
-      border-radius: 50px;
-      border: 2px solid var(--dark);
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-secondary-custom:hover {
-      background: var(--dark);
-      color: white;
-    }
-
-
-    /* =====================================================
-       EXERCÍCIO 1 — CARD DE PERFIL / CRAP
-       ===================================================== */
-
-    #perfil {
-      padding: 6rem 0;
-      background: var(--light);
-    }
-
-    .perfil-card {
-      height: 100%;
-      margin: 0 auto;
-      background: white;
-      border: 3px solid var(--dark);
-      border-radius: 24px;
-      padding: 2rem;
-      box-shadow: 7px 7px 0 var(--dark);
-
-      display: flex;
-      flex-direction: column;
-    }
-
-    .perfil-botao {
-      margin-top: auto;
-    }
-
-    .perfil-topo {
-      text-align: center;
-    }
-
-    .foto-perfil {
-      width: 110px;
-      height: 110px;
-      margin: 0 auto 1.2rem;
-      border-radius: 50%;
-      background: var(--secondary);
-      border: 3px solid var(--dark);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-size: 3rem;
-    }
-
-    .perfil-nome {
-      font-size: 1.8rem;
-      margin-bottom: .3rem;
-    }
-
-    .perfil-descricao {
-      color: #777;
-      margin-bottom: 1.5rem;
-    }
-
-    .perfil-info {
-      background: var(--body-bg);
-      border-radius: 14px;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .info-item {
-      padding: .5rem 0;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .info-item:last-child {
-      border-bottom: none;
-    }
-
-    .perfil-botao {
-      width: 100%;
-      padding: .8rem;
-      border: none;
-      border-radius: 50px;
-      background: var(--primary);
-      color: white;
-      font-weight: 700;
-    }
-
-    .perfil-botao:hover {
-      background: var(--dark);
-    }
-
-
-    /* =====================================================
-       SEÇÃO DE SERVIÇOS
-       ===================================================== */
-
-    #servicos {
-      padding: 6rem 0;
-      background: var(--body-bg);
-    }
-
-    .servico-card {
-      height: 100%;
-      background: white;
-      border: 3px solid var(--dark);
-      border-radius: 24px;
-      padding: 2.2rem;
-      box-shadow: 7px 7px 0 var(--dark);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease;
-    }
-
-    .servico-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .servico-icone {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--secondary);
-      border: 2px solid var(--dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .servico-titulo {
-      font-size: 1.5rem;
-      margin-bottom: 1.2rem;
-      color: var(--dark);
-    }
-
-    .servico-lista {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 2rem 0;
-    }
-
-    .servico-lista li {
-      padding: .4rem 0;
-      font-size: .95rem;
-      color: #4a3f52;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-    }
-
-    .servico-lista li::before {
-      content: "✦";
-      color: var(--primary);
-      font-weight: bold;
-    }
-
-    .servico-rodape {
-      margin-top: auto;
-      padding-top: 1.2rem;
-      border-top: 2px dashed var(--dark);
-    }
-
-    .servico-preco-label {
-      font-size: .8rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: .05em;
-      color: #777;
-    }
-
-    .servico-preco {
-      font-family: 'Unbounded', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: .2rem;
-    }
-
-    .servico-obs {
-      font-size: .8rem;
-      color: #666;
-      font-style: italic;
-    }
-
-
-    /* =====================================================
-       SEÇÃO DE TIPOGRAFIA / ARTIGO
-       ===================================================== */
-
-    #artigo {
-      padding: 6rem 0;
-    }
-
-    .controls-card {
-      background: var(--light);
-      border: 3px solid var(--dark);
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 5px 5px 0 var(--dark);
-    }
-
-    .article-card {
-      background: white;
-      border: 3px solid var(--dark);
-      border-radius: 24px;
-      padding: 2.5rem;
-      box-shadow: 7px 7px 0 var(--dark);
-    }
-
-    .badge-custom {
-      display: inline-block;
-      background: var(--secondary);
-      color: var(--dark);
-      font-weight: 700;
-      font-size: .8rem;
-      padding: .3rem .8rem;
-      border-radius: 50px;
-      margin-bottom: 1rem;
-    }
-
-    .hierarchy-demo {
-      background: var(--body-bg);
-      border: 2px dashed var(--dark);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .demo-label {
-      font-size: .75rem;
-      font-weight: 700;
-      color: var(--primary);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .demo-h1 { font-size: 2rem; font-weight: 800; }
-    .demo-h2 { font-size: 1.5rem; font-weight: 700; }
-    .demo-h3 { font-size: 1.2rem; font-weight: 600; }
-    .demo-body { font-size: 1rem; }
-    .demo-caption { font-size: .85rem; color: #666; }
-
-
-    /* =====================================================
-       EXERCÍCIO 2 — TRÊS CARDS
-       ===================================================== */
-
-    #projetos {
-      padding: 6rem 0;
-      background: var(--light);
-    }
-
-    .section-label {
-      font-family: 'Unbounded', sans-serif;
-      font-weight: 700;
-      font-size: .85rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--primary);
-    }
-
-    .card-projeto {
-      height: 100%;
-      background: white;
-      border: 3px solid var(--dark);
-      border-radius: 20px;
-      padding: 1.6rem;
-
-      box-shadow: 5px 5px 0 var(--dark);
-      transition: .2s;
-    }
-
-    .card-projeto:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 8px 8px 0 var(--dark);
-    }
-
-    .tag {
-      display: inline-block;
-      background: var(--secondary);
-      color: var(--dark);
-      font-weight: 700;
-      font-size: .75rem;
-      padding: .25rem .7rem;
-      border-radius: 50px;
-      margin-bottom: .8rem;
-    }
-
-
-    /* =====================================================
-       SEÇÃO DE CONTATO (FORMULÁRIO INTERATIVO)
-       ===================================================== */
-
-    #contato {
-      padding: 6rem 0;
-      background: var(--body-bg);
-    }
-
-    .contato-card {
-      background: white;
-      border: 3px solid var(--dark);
-      border-radius: 24px;
-      padding: 2.5rem;
-      box-shadow: 7px 7px 0 var(--dark);
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .form-label-custom {
-      font-weight: 700;
-      font-size: .9rem;
-      color: var(--dark);
-      margin-bottom: .4rem;
-    }
-
-    .form-control-custom {
-      background: var(--body-bg);
-      border: 2px solid var(--dark);
-      border-radius: 12px;
-      padding: .75rem 1rem;
-      font-weight: 500;
-      color: var(--dark);
-    }
-
-    .form-control-custom:focus {
-      background: white;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 0.25rem rgba(228, 76, 114, 0.25);
-      outline: none;
-    }
-
-
-    /* =====================================================
-       EXERCÍCIO 2 — FOOTER
-       ===================================================== */
-
-    footer {
-      background: var(--dark);
-      color: var(--body-bg);
-      padding: 2.5rem 0;
-    }
-
-    footer a {
-      color: var(--secondary);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    /* =====================================================
-       ATIVIDADE — IA QWEN RODANDO NO NAVEGADOR
-       ===================================================== */
-
-    #ia-qwen {
-      padding: 6rem 0;
-      background: var(--light);
-    }
-
-    .qwen-card {
-      background: white;
-      border: 3px solid var(--dark);
-      border-radius: 24px;
-      box-shadow: 7px 7px 0 var(--dark);
-      overflow: hidden;
-    }
-
-    .qwen-header {
-      padding: 1.5rem 2rem;
-      border-bottom: 2px solid #e7eaf0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .qwen-title {
-      margin: 0;
-      font-size: 1.35rem;
-    }
-
-    #qwen-status {
-      padding: .65rem 1rem;
-      background: #f8f9fb;
-      border-bottom: 1px solid #e7eaf0;
-      color: #697386;
-      font-size: .85rem;
-    }
-
-    #qwen-status.ready {
-      color: #26734d;
-    }
-
-    #qwen-status.error {
-      color: #b42318;
-    }
-
-    #qwen-chat {
-      height: 420px;
-      overflow-y: auto;
-      padding: 1.5rem;
-      scroll-behavior: smooth;
-      background: #fff;
-    }
-
-    .qwen-welcome {
-      max-width: 620px;
-      margin: 3rem auto;
-      text-align: center;
-      color: #697386;
-    }
-
-    .qwen-message {
-      display: flex;
-      margin: 0 auto 1rem;
-      max-width: 760px;
-    }
-
-    .qwen-message.user {
-      justify-content: flex-end;
-    }
-
-    .qwen-bubble {
-      max-width: 82%;
-      padding: .75rem .95rem;
-      border-radius: 16px;
-      line-height: 1.5;
-      white-space: pre-wrap;
-      overflow-wrap: anywhere;
-    }
-
-    .qwen-message.assistant .qwen-bubble {
-      background: #f0f2f6;
-      border-bottom-left-radius: 5px;
-    }
-
-    .qwen-message.user .qwen-bubble {
-      background: var(--dark);
-      color: white;
-      border-bottom-right-radius: 5px;
-    }
-
-    #qwen-typing {
-      display: none;
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 1.5rem .75rem;
-      color: #697386;
-      font-size: .85rem;
-    }
-
-    #qwen-form {
-      padding: 1rem 1.5rem 1.5rem;
-      border-top: 1px solid #e7eaf0;
-      background: white;
-    }
-
-    .qwen-input-wrap {
-      max-width: 760px;
-      margin: auto;
-      display: flex;
-      gap: .6rem;
-      align-items: flex-end;
-    }
-
-    #qwen-input {
-      flex: 1;
-      resize: none;
-      min-height: 48px;
-      max-height: 140px;
-      border: 2px solid #d9dee7;
-      border-radius: 13px;
-      padding: .8rem .9rem;
-      font: inherit;
-      outline: none;
-      background: white;
-    }
-
-    #qwen-input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(228, 76, 114, .12);
-    }
-
-    #qwen-send,
-    #qwen-clear {
-      height: 48px;
-      border: 0;
-      border-radius: 12px;
-      padding: 0 1rem;
-      cursor: pointer;
-      font-weight: 700;
-    }
-
-    #qwen-send {
-      background: var(--dark);
-      color: white;
-    }
-
-    #qwen-clear {
-      background: white;
-      color: var(--dark);
-      border: 2px solid var(--dark);
-    }
-
-    #qwen-send:disabled,
-    #qwen-clear:disabled {
-      opacity: .45;
-      cursor: not-allowed;
-    }
-
-    .qwen-footnote {
-      max-width: 760px;
-      margin: .5rem auto 0;
-      font-size: .75rem;
-      color: #8a93a3;
-    }
-
-    @media (max-width: 600px) {
-      .qwen-header {
-        padding: 1.2rem;
-      }
-
-      #qwen-chat {
-        height: 380px;
-        padding: 1rem;
-      }
-
-      #qwen-form {
-        padding: .8rem .8rem 1rem;
-      }
-
-      .qwen-bubble {
-        max-width: 90%;
-      }
-
-      .qwen-input-wrap {
-        flex-wrap: wrap;
-      }
-
-      #qwen-input {
-        flex-basis: 100%;
-      }
-    }
-
-    /* =====================================================
-       TÓPICO 6 — HIERARQUIA VISUAL
-       ===================================================== */
-
-    #topico6-hierarquia {
-      padding: 6rem 0;
-      background: var(--body-bg);
-    }
-
-    .hierarchy-product-card {
-      background: white;
-      max-width: 520px;
-      margin: 0 auto;
-      padding: 2rem;
-      border-radius: 24px;
-      border: 3px solid var(--dark);
-      box-shadow: 7px 7px 0 var(--dark);
-    }
-
-    .hierarchy-product-card .product-tag {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: .35rem .85rem;
-      border-radius: 6px;
-      font-size: .75rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .hierarchy-product-card .product-title {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      font-weight: 800;
-      margin-bottom: .5rem;
-    }
-
-    .hierarchy-product-card .product-price {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--success);
-      margin-bottom: .6rem;
-    }
-
-    .hierarchy-product-card .old-price {
-      font-size: 1rem;
-      color: #8a93a3;
-      text-decoration: line-through;
-      font-weight: 400;
-      margin-left: .4rem;
-    }
-
-    .hierarchy-product-card .product-description {
-      color: #697386;
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-
-    .hierarchy-product-card .product-button {
-      width: 100%;
-      background: var(--info);
-      color: white;
-      border: 0;
-      padding: .9rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 700;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    .hierarchy-product-card .product-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 0 var(--dark);
-    }
-
-    /* =====================================================
-       TÓPICO 7 — CORES
-       ===================================================== */
-
-    #topico7-cores {
-      padding: 6rem 0;
-      background: var(--light);
-    }
-
-    .color-palette {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .color-swatch {
-      width: 140px;
-      height: 140px;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      text-align: center;
-      border: 3px solid var(--dark);
-      box-shadow: 5px 5px 0 var(--dark);
-      padding: .75rem;
-    }
-
-    .color-swatch.primary { background: var(--primary); }
-    .color-swatch.secondary { background: var(--secondary); color: var(--dark); }
-    .color-swatch.success { background: var(--success); color: var(--dark); }
-    .color-swatch.warning { background: #EAB308; color: #333; }
-    .color-swatch.danger { background: #EF4444; }
-    .color-swatch.neutral { background: #6B7280; }
-
-    .palette-note {
-      max-width: 700px;
-      margin: 1.5rem auto 0;
-      text-align: center;
-      color: #697386;
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
   <!-- =====================================================
-       EXERCÍCIO 2 — HEADER (NAVBAR RESPONSIVA E FIXA)
+       NAVBAR RESPONSIVA E FIXA
        ===================================================== -->
-
   <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
-
     <div class="container">
-
       <a class="navbar-brand" href="#inicio">
         Kiv<span> studio</span>
       </a>
@@ -862,220 +35,110 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
-
         <div class="navbar-nav ms-auto align-items-lg-center">
-
-          <a class="nav-link active" href="#inicio">
-            Início
-          </a>
-
-          <a class="nav-link" href="#perfil">
-            Perfil
-          </a>
-
-          <a class="nav-link" href="#servicos">
-            Serviços
-          </a>
-
-          <a class="nav-link" href="#artigo">
-            Artigo
-          </a>
-
-          <a class="nav-link" href="#projetos">
-            Projetos
-          </a>
-
-          <a class="nav-link" href="#ia-qwen">
-            IA
-          </a>
-
-          <a class="nav-link" href="#topico6-hierarquia">
-            Hierarquia
-          </a>
-
-          <a class="nav-link" href="#topico7-cores">
-            Cores
-          </a>
-
-          <a class="btn btn-nav ms-lg-2 mt-2 mt-lg-0" href="#contato">
-            Contato
-          </a>
-
+          <a class="nav-link active" href="#inicio">Início</a>
+          <a class="nav-link" href="#perfil">Perfil</a>
+          <a class="nav-link" href="#servicos">Serviços</a>
+          <a class="nav-link" href="#artigo">Artigo</a>
+          <a class="nav-link" href="#dashboard-exercicio">Dashboard</a>
+          <a class="nav-link" href="#projetos">Projetos</a>
+          <a class="nav-link" href="#ia-qwen">IA</a>
+          <a class="nav-link" href="#topico6-hierarquia">Hierarquia</a>
+          <a class="nav-link" href="#topico7-cores">Cores</a>
+          <a class="btn btn-nav ms-lg-2 mt-2 mt-lg-0" href="#contato">Contato</a>
         </div>
-
       </div>
-
     </div>
-
   </nav>
 
-
-
   <!-- =====================================================
-       EXERCÍCIO 2 — HERO SECTION
+       HERO SECTION
        ===================================================== -->
-
   <section class="hero d-flex flex-column justify-content-center align-items-center text-center" id="inicio">
-
     <div class="container hero-content d-flex flex-column align-items-center">
-
-      <p class="section-label mb-3">
-        Estúdio de identidade visual
-      </p>
-
+      <p class="section-label mb-3">Estúdio de identidade visual</p>
       <h1 class="mb-4">
-        Marca que grita
-        <span class="highlight">confiança</span>,
-        não só cor.
+        Marca que grita <span class="highlight">confiança</span>, não só cor.
       </h1>
-
       <p class="mb-4 text-center">
-        Identidade visual e site para microempreendedoras
-        que estão cansadas de parecer "mais uma" no feed.
-        Direto ao ponto, cheio de personalidade.
+        Identidade visual e site para microempreendedoras que estão cansadas de parecer "mais uma" no feed. Direto ao ponto, cheio de personalidade.
       </p>
-
       <div class="d-flex gap-3 justify-content-center flex-wrap">
-
-        <a href="#servicos" class="btn btn-primary-custom">
-          Ver serviços ↓
-        </a>
-
-        <a href="#contato" class="btn btn-secondary-custom">
-          Fale Conosco
-        </a>
-
+        <a href="#servicos" class="btn btn-primary-custom">Ver serviços ↓</a>
+        <a href="#contato" class="btn btn-secondary-custom">Fale Conosco</a>
       </div>
-
     </div>
-
   </section>
 
-
-
   <!-- =====================================================
-       EXERCÍCIO 1 — CARDS DE PERFIL
+       PERFIL
        ===================================================== -->
-
   <section id="perfil">
-
     <div class="container">
-
       <div class="text-center mb-5">
-
-        <h2>
-          Quem está por trás?
-        </h2>
-
+        <h2>Quem está por trás?</h2>
       </div>
 
-
-      <!-- 3 CARDS DE PERFIL -->
-
       <div class="row g-4 justify-content-center">
-
         <!-- CARD 1 -->
-        <div class="col-md-4">
+        <div class="col-12 col-md-6 col-lg-4">
           <div class="perfil-card">
             <div class="perfil-topo">
               <div class="foto-perfil">🌺</div>
               <h3 class="perfil-nome">Isadora</h3>
               <p class="perfil-descricao">Identidade Visual</p>
             </div>
-
             <div class="perfil-info">
-              <div class="info-item">
-                📧 <strong>Email:</strong><br>
-                curtsyee@gmail.com
-              </div>
-              <div class="info-item">
-                📍 <strong>Localização:</strong><br>
-                São Paulo, Brasil
-              </div>
-              <div class="info-item">
-                🎨 <strong>Especialidade:</strong><br>
-                Identidade Visual
-              </div>
+              <div class="info-item">📧 <strong>Email:</strong><br>curtsyee@gmail.com</div>
+              <div class="info-item">📍 <strong>Localização:</strong><br>São Paulo, Brasil</div>
+              <div class="info-item">🎨 <strong>Especialidade:</strong><br>Identidade Visual</div>
             </div>
-
             <button class="perfil-botao">Ver perfil</button>
           </div>
         </div>
 
-
         <!-- CARD 2 -->
-        <div class="col-md-4">
+        <div class="col-12 col-md-6 col-lg-4">
           <div class="perfil-card">
             <div class="perfil-topo">
               <div class="foto-perfil">🌸</div>
               <h3 class="perfil-nome">Kawany</h3>
               <p class="perfil-descricao">Designer de Artes</p>
             </div>
-
             <div class="perfil-info">
-              <div class="info-item">
-                📧 <strong>Email:</strong><br>
-                kawany@email.com
-              </div>
-              <div class="info-item">
-                📍 <strong>Localização:</strong><br>
-                São Paulo, Brasil
-              </div>
-              <div class="info-item">
-                💻 <strong>Especialidade:</strong><br>
-                Design de Artes
-              </div>
+              <div class="info-item">📧 <strong>Email:</strong><br>kawany@email.com</div>
+              <div class="info-item">📍 <strong>Localização:</strong><br>São Paulo, Brasil</div>
+              <div class="info-item">💻 <strong>Especialidade:</strong><br>Design de Artes</div>
             </div>
-
             <button class="perfil-botao">Ver perfil</button>
           </div>
         </div>
 
-
         <!-- CARD 3 -->
-        <div class="col-md-4">
+        <div class="col-12 col-md-6 col-lg-4">
           <div class="perfil-card">
             <div class="perfil-topo">
               <div class="foto-perfil">📸</div>
               <h3 class="perfil-nome">Renata Vitória</h3>
               <p class="perfil-descricao">Social Media</p>
             </div>
-
             <div class="perfil-info">
-              <div class="info-item">
-                📧 <strong>Email:</strong><br>
-                vitoriarenatinha@email.com
-              </div>
-              <div class="info-item">
-                📍 <strong>Localização:</strong><br>
-                São Paulo, Brasil
-              </div>
-              <div class="info-item">
-                📸 <strong>Especialidade:</strong><br>
-                Social Media
-              </div>
+              <div class="info-item">📧 <strong>Email:</strong><br>vitoriarenatinha@email.com</div>
+              <div class="info-item">📍 <strong>Localização:</strong><br>São Paulo, Brasil</div>
+              <div class="info-item">📸 <strong>Especialidade:</strong><br>Social Media</div>
             </div>
-
             <button class="perfil-botao">Ver perfil</button>
           </div>
         </div>
-
       </div>
-
     </div>
-
   </section>
 
-
-
   <!-- =====================================================
-       SEÇÃO — SERVIÇOS
+       SERVIÇOS
        ===================================================== -->
-
   <section id="servicos">
-
     <div class="container">
-
       <div class="text-center mb-5">
         <p class="section-label">O que oferecemos</p>
         <h2>Serviços</h2>
@@ -1083,15 +146,11 @@
       </div>
 
       <div class="row g-4 justify-content-center">
-
-        <!-- CARD 1: IDENTIDADE VISUAL -->
-        <div class="col-lg-4 col-md-6">
+        <!-- CARD 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
           <div class="servico-card">
-            
             <div class="servico-icone">🎨</div>
-            
             <h3 class="servico-titulo">Identidade Visual</h3>
-
             <ul class="servico-lista">
               <li>Identidade Visual Core</li>
               <li>Papelaria e Materiais Corporativos</li>
@@ -1100,24 +159,19 @@
               <li>Identidade Ambiental (Sinalização)</li>
               <li>Serviços Estratégicos</li>
             </ul>
-
             <div class="servico-rodape">
               <span class="servico-preco-label">Valor inicial</span>
               <div class="servico-preco">R$ 1.500,00</div>
               <p class="servico-obs">* varia de acordo com o serviço.</p>
             </div>
-
           </div>
         </div>
 
-        <!-- CARD 2: SOCIAL MEDIA -->
-        <div class="col-lg-4 col-md-6">
+        <!-- CARD 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
           <div class="servico-card">
-            
             <div class="servico-icone">📱</div>
-            
             <h3 class="servico-titulo">Social Media</h3>
-
             <ul class="servico-lista">
               <li>Estratégia e Planejamento</li>
               <li>Criação de Conteúdo</li>
@@ -1126,24 +180,19 @@
               <li>Gestão de Tráfego Pago</li>
               <li>Marketing de Influência</li>
             </ul>
-
             <div class="servico-rodape">
               <span class="servico-preco-label">Valor inicial</span>
               <div class="servico-preco">R$ 750,00</div>
               <p class="servico-obs">* varia de acordo com o serviço.</p>
             </div>
-
           </div>
         </div>
 
-        <!-- CARD 3: ARTES -->
-        <div class="col-lg-4 col-md-6">
+        <!-- CARD 3 -->
+        <div class="col-12 col-md-6 col-lg-4">
           <div class="servico-card">
-            
             <div class="servico-icone">🖼️</div>
-            
             <h3 class="servico-titulo">Artes</h3>
-
             <ul class="servico-lista">
               <li>Ilustração e Pintura Digital</li>
               <li>Design Gráfico e Branding</li>
@@ -1152,486 +201,262 @@
               <li>UX/UI e Web Design</li>
               <li>Edição e Pós-Produção</li>
             </ul>
-
             <div class="servico-rodape">
               <span class="servico-preco-label">Valor inicial</span>
               <div class="servico-preco">R$ 500,00</div>
               <p class="servico-obs">* varia de acordo com o serviço.</p>
             </div>
-
           </div>
         </div>
-
       </div>
-
     </div>
-
   </section>
 
-
-
   <!-- =====================================================
-       SEÇÃO — CONTROLES E ARTIGO (TIPOGRAFIA)
+       ARTIGO & TIPOGRAFIA
        ===================================================== -->
-
   <section id="artigo">
-
     <div class="container">
-
-      <!-- CONTROLES DE TIPOGRAFIA -->
       <div class="controls-card text-center mb-5">
-
         <p class="section-label mb-2">Ajuste de acessibilidade</p>
-
-        <h2>
-          Ajuste a tipografia
-        </h2>
-
-        <p>
-          Use os botões para aumentar, reduzir ou restaurar o tamanho dos textos.
-        </p>
-
+        <h2>Ajuste a tipografia</h2>
+        <p>Use os botões para aumentar, reduzir ou restaurar o tamanho dos textos.</p>
         <div class="button-group d-flex justify-content-center gap-2 flex-wrap mt-3">
-
-          <button id="btn-aumentar" class="btn btn-primary-custom">
-            Aumentar texto
-          </button>
-
-          <button id="btn-reduzir" class="btn btn-secondary-custom">
-            Reduzir texto
-          </button>
-
-          <button id="btn-reset" class="btn btn-secondary-custom">
-            Restaurar
-          </button>
-
+          <button id="btn-aumentar" class="btn btn-primary-custom">Aumentar texto</button>
+          <button id="btn-reduzir" class="btn btn-secondary-custom">Reduzir texto</button>
+          <button id="btn-reset" class="btn btn-secondary-custom">Restaurar</button>
         </div>
-
       </div>
-
-
-      <!-- ARTIGO -->
 
       <article class="article-card">
-
         <header class="article-header mb-4">
-
-          <span class="badge-custom">
-            DESIGN
-          </span>
-
-          <h2>
-            A importância da tipografia no design
-          </h2>
-
-          <p class="text-muted small">
-            Publicado em 14 de setembro de 2026 • Kiv Studio
-          </p>
-
+          <span class="badge-custom">DESIGN</span>
+          <h2>A importância da tipografia no design</h2>
+          <p class="text-muted small">Publicado em 14 de setembro de 2026 • Kiv Studio</p>
         </header>
 
-
         <section class="article-body">
-
-          <p>
-            A <strong>tipografia</strong> é uma das partes
-            mais importantes de uma página. Ela ajuda o leitor
-            a entender quais informações são mais importantes
-            e cria uma ordem visual para o conteúdo.
-          </p>
-
-
-          <h3 class="h4 mt-4">
-            1. Escolha das fontes
-          </h3>
-
-          <p>
-            Uma boa combinação de fontes pode deixar o conteúdo
-            mais agradável e fácil de ler. Neste exemplo,
-            utilizamos uma fonte sem serifa nos títulos e uma
-            fonte com serifa nos textos.
-          </p>
-
-
-          <h3 class="h4 mt-4">
-            2. Tamanho e peso
-          </h3>
-
-          <p>
-            O tamanho e o peso das letras ajudam a criar
-            <strong>contraste e hierarquia</strong>.
-            Títulos maiores chamam mais atenção, enquanto
-            textos menores funcionam como informações
-            complementares.
-          </p>
-
-
-          <!-- EXEMPLO VISUAL DA HIERARQUIA -->
+          <p>A <strong>tipografia</strong> é uma das partes mais importantes de uma página. Ela ajuda o leitor a entender quais informações são mais importantes e cria uma ordem visual para o conteúdo.</p>
+          <h3 class="h4 mt-4">1. Escolha das fontes</h3>
+          <p>Uma boa combinação de fontes pode deixar o conteúdo mais agradável e fácil de ler.</p>
+          <h3 class="h4 mt-4">2. Tamanho e peso</h3>
+          <p>O tamanho e o peso das letras ajudam a criar <strong>contraste e hierarquia</strong>.</p>
 
           <div class="hierarchy-demo">
-
-            <p class="demo-label mb-3">
-              EXEMPLO DE HIERARQUIA
-            </p>
-
-            <h1 class="demo-h1">
-              Título Principal
-            </h1>
-
-            <h2 class="demo-h2">
-              Subtítulo
-            </h2>
-
-            <h3 class="demo-h3">
-              Subtítulo menor
-            </h3>
-
-            <p class="demo-body">
-              Este é um exemplo de texto de corpo.
-              Ele possui tamanho regular e maior
-              espaço entre as linhas para facilitar
-              a leitura.
-            </p>
-
-            <p class="demo-caption">
-              Legenda — texto pequeno e secundário.
-            </p>
-
+            <p class="demo-label mb-3">EXEMPLO DE HIERARQUIA</p>
+            <h1 class="demo-h1">Título Principal</h1>
+            <h2 class="demo-h2">Subtítulo</h2>
+            <h3 class="demo-h3">Subtítulo menor</h3>
+            <p class="demo-body">Este é um exemplo de texto de corpo. Ele possui tamanho regular e maior espaço entre as linhas para facilitar a leitura.</p>
+            <p class="demo-caption">Legenda — texto pequeno e secundário.</p>
           </div>
 
-
-          <h3 class="h4 mt-4">
-            3. Espaçamento entre as linhas
-          </h3>
-
-          <p>
-            O <em>line-height</em> controla o espaço entre
-            as linhas. Um espaçamento adequado evita que
-            o texto fique apertado e melhora a experiência
-            de leitura.
-          </p>
-
-
-          <h3 class="h4 mt-4">
-            4. Hierarquia visual
-          </h3>
-
-          <p>
-            Uma hierarquia bem definida permite que o usuário
-            identifique rapidamente o título, os subtítulos,
-            os parágrafos e as informações secundárias.
-          </p>
-
+          <h3 class="h4 mt-4">3. Espaçamento entre as linhas</h3>
+          <p>O <em>line-height</em> controla o espaço entre as linhas.</p>
+          <h3 class="h4 mt-4">4. Hierarquia visual</h3>
+          <p>Uma hierarquia bem definida permite que o usuário identifique rapidamente o conteúdo.</p>
         </section>
-
       </article>
-
     </div>
-
   </section>
 
-
-
-
   <!-- =====================================================
-       TÓPICO 6 — HIERARQUIA VISUAL
+       EXERCÍCIO — DASHBOARD RESPONSIVO (Sidebar, Cards e Gráfico)
        ===================================================== -->
-
-  <section id="topico6-hierarquia">
-
+  <section id="dashboard-exercicio">
     <div class="container">
-
       <div class="text-center mb-5">
-        <p class="section-label">Tópico 6</p>
-        <h2>Hierarquia Visual</h2>
-        <p>
-          O usuário deve saber instantaneamente o que é mais importante.
-          Tamanho, cor e posição ajudam a criar essa ordem visual.
-        </p>
+        <p class="section-label">Exercício Prático</p>
+        <h2>Dashboard Responsivo</h2>
+        <p>Exemplo de layout com sidebar, cards de métricas e gráfico fluido.</p>
       </div>
 
-      <div class="hierarchy-product-card">
-
-        <span class="product-tag">NOVO</span>
-
-        <h3 class="product-title">
-          Curso de Web Design
-        </h3>
-
-        <p class="product-price">
-          R$ 199
-          <span class="old-price">R$ 399</span>
-        </p>
-
-        <p class="product-description">
-          Aprenda design do zero com projetos práticos e
-          desenvolva suas habilidades visuais.
-        </p>
-
-        <button
-          type="button"
-          class="product-button"
-          onclick="alert('Exemplo de botão com hierarquia visual!')"
-        >
-          Matricule-se Agora
-        </button>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       TÓPICO 7 — CORES
-       ===================================================== -->
-
-  <section id="topico7-cores">
-
-    <div class="container">
-
-      <div class="text-center mb-5">
-        <p class="section-label">Tópico 7</p>
-        <h2>Cores</h2>
-        <p>
-          Cores transmitem emoção e significado.
-          Esta paleta demonstra funções diferentes dentro de uma interface.
-        </p>
-      </div>
-
-      <div class="color-palette">
-
-        <div class="color-swatch primary">
-          Primária
-        </div>
-
-        <div class="color-swatch secondary">
-          Secundária
-        </div>
-
-        <div class="color-swatch success">
-          Sucesso
-        </div>
-
-        <div class="color-swatch warning">
-          Aviso
-        </div>
-
-        <div class="color-swatch danger">
-          Erro
-        </div>
-
-        <div class="color-swatch neutral">
-          Neutra
-        </div>
-
-      </div>
-
-      <p class="palette-note">
-        <strong>Paleta aplicada à Kiv Studio:</strong>
-        a cor primária representa a identidade da marca,
-        a secundária complementa a composição e as cores
-        semânticas comunicam estados como sucesso, aviso e erro.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       EXERCÍCIO 2 — TRÊS CARDS (PROJETOS)
-       ===================================================== -->
-
-  <section id="projetos">
-
-    <div class="container">
-
-      <div class="text-center mb-5">
-
-        <h2>
-          Alguns trabalhos recentes
-        </h2>
-
-        <p>
-          Três exemplos organizados em cards.
-        </p>
-
-      </div>
-
-
-      <div class="row g-4">
-
-        <!-- CARD 1 -->
-
-        <div class="col-md-4">
-
-          <div class="card-projeto">
-
-            <span class="tag">
-              Papelaria
-            </span>
-
-            <h3 class="h5">
-              Ateliê Rosa do Vale
-            </h3>
-
-            <p>
-              Identidade completa para papelaria artesanal —
-              do logo às embalagens.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <!-- CARD 2 -->
-
-        <div class="col-md-4">
-
-          <div class="card-projeto">
-
-            <span class="tag">
-              Gastronomia
-            </span>
-
-            <h3 class="h5">
-              Doceria Manteiga
-            </h3>
-
-            <p>
-              Naming, marca e cardápio para confeitaria
-              autoral de bairro.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <!-- CARD 3 -->
-
-        <div class="col-md-4">
-
-          <div class="card-projeto">
-
-            <span class="tag">
-              Bem-estar
-            </span>
-
-            <h3 class="h5">
-              Sol & Sal Terapias
-            </h3>
-
-            <p>
-              Rebranding e site institucional para espaço
-              de terapias holísticas.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-
-  <!-- =====================================================
-       ATIVIDADE — CHAT IA QWEN RODANDO NO NAVEGADOR
-       ===================================================== -->
-
-  <section id="ia-qwen">
-
-    <div class="container">
-
-      <div class="text-center mb-5">
-        <p class="section-label">Inteligência artificial</p>
-        <h2>Assistente KivIA</h2>
-        <p>
-          Converse com um pequeno modelo de linguagem executado
-          diretamente no navegador, sem API key.
-        </p>
-      </div>
-
-      <div class="qwen-card">
-
-        <div class="qwen-header">
-          <div>
-            <h3 class="qwen-title">KivIA</h3>
-            <div class="text-muted small">
-              Qwen2.5-0.5B-Instruct · processamento local
+      <!-- Container Principal do Dashboard com Grid -->
+      <div class="dashboard-grid-layout">
+        
+        <!-- Sidebar do Dashboard -->
+        <aside class="dash-sidebar">
+          <h3>KivDash</h3>
+          <nav>
+            <a href="#" class="active">Visão Geral</a>
+            <a href="#">Analytics</a>
+            <a href="#">Clientes</a>
+            <a href="#">Configurações</a>
+          </nav>
+        </aside>
+
+        <!-- Conteúdo Principal do Dashboard -->
+        <main class="dash-main">
+          
+          <!-- Cards de Métricas -->
+          <div class="row g-3 mb-4">
+            <div class="col-12 col-md-4">
+              <div class="dash-card">
+                <span class="dash-card-title">Vendas Totais</span>
+                <h4 class="dash-card-value">R$ 45.900</h4>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="dash-card">
+                <span class="dash-card-title">Novos Usuários</span>
+                <h4 class="dash-card-value">+1.240</h4>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="dash-card">
+                <span class="dash-card-title">Conversão</span>
+                <h4 class="dash-card-value">3.6%</h4>
+              </div>
             </div>
           </div>
 
-          <button id="qwen-clear" type="button">
-            Limpar
-          </button>
+          <!-- Seção de Gráfico Fluido -->
+          <div class="dash-chart-card">
+            <h4 class="mb-3">Desempenho Mensal</h4>
+            <div class="chart-container">
+              <img src="https://via.placeholder.com/800x300?text=Gráfico+de+Desempenho+-+Kiv+Studio" alt="Gráfico de Desempenho do Dashboard">
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       HIERARQUIA VISUAL
+       ===================================================== -->
+  <section id="topico6-hierarquia">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-label">Tópico 6</p>
+        <h2>Hierarquia Visual</h2>
+        <p>O usuário deve saber instantaneamente o que é mais importante.</p>
+      </div>
+
+      <div class="hierarchy-product-card">
+        <span class="product-tag">NOVO</span>
+        <h3 class="product-title">Curso de Web Design</h3>
+        <p class="product-price">R$ 199 <span class="old-price">R$ 399</span></p>
+        <p class="product-description">Aprenda design do zero com projetos práticos e desenvolva suas habilidades visuais.</p>
+        <button type="button" class="product-button" onclick="alert('Exemplo de botão com hierarquia visual!')">
+          Matricule-se Agora
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CORES
+       ===================================================== -->
+  <section id="topico7-cores">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-label">Tópico 7</p>
+        <h2>Cores</h2>
+        <p>Cores transmitem emoção e significado.</p>
+      </div>
+
+      <div class="color-palette">
+        <div class="color-swatch primary">Primária</div>
+        <div class="color-swatch secondary">Secundária</div>
+        <div class="color-swatch success">Sucesso</div>
+        <div class="color-swatch warning">Aviso</div>
+        <div class="color-swatch danger">Erro</div>
+        <div class="color-swatch neutral">Neutra</div>
+      </div>
+
+      <p class="palette-note">
+        <strong>Paleta aplicada à Kiv Studio:</strong> a cor primária representa a identidade da marca, a secundária complementa e as cores semânticas comunicam estados.
+      </p>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PROJETOS
+       ===================================================== -->
+  <section id="projetos">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2>Alguns trabalhos recentes</h2>
+        <p>Três exemplos organizados em cards.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card-projeto">
+            <span class="tag">Papelaria</span>
+            <h3 class="h5">Ateliê Rosa do Vale</h3>
+            <p>Identidade completa para papelaria artesanal — do logo às embalagens.</p>
+          </div>
         </div>
 
-        <div id="qwen-status">
-          Preparando o modelo...
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card-projeto">
+            <span class="tag">Gastronomia</span>
+            <h3 class="h5">Doceria Manteiga</h3>
+            <p>Naming, marca e cardápio para confeitaria autoral de bairro.</p>
+          </div>
         </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card-projeto">
+            <span class="tag">Bem-estar</span>
+            <h3 class="h5">Sol & Sal Terapias</h3>
+            <p>Rebranding e site institucional para espaço de terapias holísticas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CHAT IA QWEN
+       ===================================================== -->
+  <section id="ia-qwen">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-label">Inteligência artificial</p>
+        <h2>Assistente KivIA</h2>
+        <p>Converse com um pequeno modelo de linguagem executado diretamente no navegador.</p>
+      </div>
+
+      <div class="qwen-card">
+        <div class="qwen-header">
+          <div>
+            <h3 class="qwen-title">KivIA</h3>
+            <div class="text-muted small">Qwen2.5-0.5B-Instruct · processamento local</div>
+          </div>
+          <button id="qwen-clear" type="button">Limpar</button>
+        </div>
+
+        <div id="qwen-status">Preparando o modelo...</div>
 
         <div id="qwen-chat">
           <div class="qwen-welcome" id="qwen-welcome">
             <h3>Olá!</h3>
-            <p>
-              Este chat usa um pequeno modelo de linguagem executado
-              no seu navegador.
-            </p>
-            <p>
-              Na primeira vez, o modelo será baixado e depois poderá
-              ficar em cache.
-            </p>
+            <p>Este chat usa um pequeno modelo de linguagem executado no seu navegador.</p>
           </div>
         </div>
 
-        <div id="qwen-typing">
-          IA está digitando...
-        </div>
+        <div id="qwen-typing">IA está digitando...</div>
 
         <form id="qwen-form">
           <div class="qwen-input-wrap">
-            <textarea
-              id="qwen-input"
-              placeholder="Digite sua pergunta..."
-              rows="1"
-              disabled
-            ></textarea>
-
-            <button id="qwen-send" type="submit" disabled>
-              Enviar
-            </button>
+            <textarea id="qwen-input" placeholder="Digite sua pergunta..." rows="1" disabled></textarea>
+            <button id="qwen-send" type="submit" disabled>Enviar</button>
           </div>
-
-          <div class="qwen-footnote">
-            O modelo tenta usar WebGPU e, caso não esteja disponível,
-            utiliza WASM/CPU.
-          </div>
+          <div class="qwen-footnote">O modelo tenta usar WebGPU e, caso não esteja disponível, utiliza WASM/CPU.</div>
         </form>
-
       </div>
-
     </div>
-
   </section>
 
-
   <!-- =====================================================
-       SEÇÃO — CONTATO (FORMULÁRIO INTERATIVO)
+       CONTATO
        ===================================================== -->
-
   <section id="contato">
-
     <div class="container">
-
       <div class="text-center mb-5">
         <p class="section-label">Fale Conosco</p>
         <h2>Vamos conversar?</h2>
@@ -1639,345 +464,53 @@
       </div>
 
       <div class="contato-card">
-
         <form action="#" method="POST">
-
           <div class="row g-3">
-
-            <!-- NOME -->
-            <div class="col-md-6">
+            <div class="col-12 col-md-6">
               <label for="nome" class="form-label form-label-custom">Nome *</label>
               <input type="text" class="form-control form-control-custom" id="nome" placeholder="Seu nome" required>
             </div>
-
-            <!-- SOBRENOME -->
-            <div class="col-md-6">
+            <div class="col-12 col-md-6">
               <label for="sobrenome" class="form-label form-label-custom">Sobrenome *</label>
               <input type="text" class="form-control form-control-custom" id="sobrenome" placeholder="Seu sobrenome" required>
             </div>
-
-            <!-- EMAIL -->
-            <div class="col-md-6">
+            <div class="col-12 col-md-6">
               <label for="email" class="form-label form-label-custom">E-mail *</label>
               <input type="email" class="form-control form-control-custom" id="email" placeholder="seuemail@exemplo.com" required>
             </div>
-
-            <!-- TELEFONE -->
-            <div class="col-md-6">
+            <div class="col-12 col-md-6">
               <label for="telefone" class="form-label form-label-custom">Telefone</label>
               <input type="tel" class="form-control form-control-custom" id="telefone" placeholder="(11) 99999-9999">
             </div>
-
-            <!-- MENSAGEM -->
             <div class="col-12">
               <label for="mensagem" class="form-label form-label-custom">Mensagem *</label>
               <textarea class="form-control form-control-custom" id="mensagem" rows="4" placeholder="Conta pra gente o que você precisa..." required></textarea>
             </div>
-
-            <!-- BOTÃO DE ENVIO -->
             <div class="col-12 text-center mt-4">
-              <button type="submit" class="btn btn-primary-custom w-100">
-                Enviar mensagem 🚀
-              </button>
+              <button type="submit" class="btn btn-primary-custom w-100">Enviar mensagem 🚀</button>
             </div>
-
           </div>
-
         </form>
-
       </div>
-
     </div>
-
   </section>
 
-
-
   <!-- =====================================================
-       EXERCÍCIO 2 — FOOTER
+       FOOTER
        ===================================================== -->
-
   <footer>
-
     <div class="container">
-
-      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
-
-        <span>
-          © 2026 Kiv studio — feito com café e teimosia.
-        </span>
-
-        <a href="#inicio">
-          Voltar ao início ↑
-        </a>
-
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 text-center text-sm-start">
+        <span>© 2026 Kiv studio — feito com café e teimosia.</span>
+        <a href="#inicio" class="w-100 w-sm-auto">Voltar ao início ↑</a>
       </div>
-
     </div>
-
   </footer>
 
-
-
-  <!-- JavaScript da atividade: Qwen rodando no navegador -->
-  <script type="module">
-    import { pipeline, env } from
-      "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1";
-
-    env.allowRemoteModels = true;
-    env.allowLocalModels = false;
-
-    const QWEN_MODEL = "onnx-community/Qwen2.5-0.5B-Instruct";
-
-    const qwenChat = document.getElementById("qwen-chat");
-    const qwenWelcome = document.getElementById("qwen-welcome");
-    const qwenStatus = document.getElementById("qwen-status");
-    const qwenForm = document.getElementById("qwen-form");
-    const qwenInput = document.getElementById("qwen-input");
-    const qwenSend = document.getElementById("qwen-send");
-    const qwenClear = document.getElementById("qwen-clear");
-    const qwenTyping = document.getElementById("qwen-typing");
-
-    let qwenGenerator = null;
-
-    let qwenMessages = [
-      {
-        role: "system",
-        content:
-          "Você é o assistente virtual da Kiv Studio. " +
-          "Responda sempre em português do Brasil, de forma clara, " +
-          "prestativa e concisa. A Kiv Studio é um estúdio de design " +
-          "voltado para mulheres microempreendedoras."
-      }
-    ];
-
-    function qwenSetStatus(text, type = "") {
-      qwenStatus.textContent = text;
-      qwenStatus.className = type;
-    }
-
-    function qwenAddMessage(role, text) {
-      if (qwenWelcome) {
-        qwenWelcome.style.display = "none";
-      }
-
-      const row = document.createElement("div");
-      row.className = `qwen-message ${role}`;
-
-      const bubble = document.createElement("div");
-      bubble.className = "qwen-bubble";
-      bubble.textContent = text;
-
-      row.appendChild(bubble);
-      qwenChat.appendChild(row);
-      qwenChat.scrollTop = qwenChat.scrollHeight;
-
-      return bubble;
-    }
-
-    async function qwenHasWebGPU() {
-      try {
-        if (!("gpu" in navigator)) return false;
-
-        const adapter = await navigator.gpu.requestAdapter();
-        return !!adapter;
-      } catch {
-        return false;
-      }
-    }
-
-    function qwenReady(label) {
-      qwenSetStatus("Modelo pronto · " + label, "ready");
-      qwenInput.disabled = false;
-      qwenSend.disabled = false;
-      qwenInput.focus();
-    }
-
-    function qwenProgress(progress) {
-      if (
-        progress.status === "progress" &&
-        typeof progress.progress === "number"
-      ) {
-        qwenSetStatus(
-          "Baixando modelo... " +
-          Math.round(progress.progress) +
-          "%"
-        );
-      }
-    }
-
-    async function qwenLoadModel() {
-      qwenSetStatus(
-        "Baixando/carregando o modelo... isso pode demorar na primeira vez."
-      );
-
-      if (await qwenHasWebGPU()) {
-        try {
-          qwenGenerator = await pipeline(
-            "text-generation",
-            QWEN_MODEL,
-            {
-              device: "webgpu",
-              dtype: "q4",
-              progress_callback: qwenProgress
-            }
-          );
-
-          qwenReady("WebGPU");
-          return;
-        } catch (error) {
-          console.warn(
-            "WebGPU falhou, usando WASM/CPU:",
-            error
-          );
-        }
-      }
-
-      try {
-        qwenSetStatus("Carregando em modo WASM/CPU...");
-
-        qwenGenerator = await pipeline(
-          "text-generation",
-          QWEN_MODEL,
-          {
-            device: "wasm",
-            dtype: "int8",
-            progress_callback: qwenProgress
-          }
-        );
-
-        qwenReady("WASM/CPU");
-      } catch (error) {
-        console.error(error);
-
-        qwenSetStatus(
-          "Erro ao carregar o modelo: " +
-          (error?.message || error),
-          "error"
-        );
-      }
-    }
-
-    async function qwenGenerate(userText) {
-      qwenMessages.push({
-        role: "user",
-        content: userText
-      });
-
-      qwenTyping.style.display = "block";
-      qwenSend.disabled = true;
-      qwenInput.disabled = true;
-
-      try {
-        const output = await qwenGenerator(qwenMessages, {
-          max_new_tokens: 256,
-          repetition_penalty: 1.1,
-          temperature: 0.7,
-          top_p: 0.9,
-          do_sample: true
-        });
-
-        const generated = output?.[0]?.generated_text;
-
-        let answer = "";
-
-        if (Array.isArray(generated)) {
-          const last = generated[generated.length - 1];
-
-          answer =
-            typeof last === "string"
-              ? last
-              : last?.content || "";
-        } else {
-          answer = String(generated || "");
-        }
-
-        answer = answer.trim();
-
-        if (!answer) {
-          answer = "Não consegui gerar uma resposta.";
-        }
-
-        qwenMessages.push({
-          role: "assistant",
-          content: answer
-        });
-
-        qwenAddMessage("assistant", answer);
-
-      } catch (error) {
-        console.error(error);
-
-        qwenMessages.pop();
-
-        qwenAddMessage(
-          "assistant",
-          "Ocorreu um erro ao gerar a resposta. " +
-          "Veja o Console do navegador."
-        );
-      } finally {
-        qwenTyping.style.display = "none";
-        qwenSend.disabled = false;
-        qwenInput.disabled = false;
-        qwenInput.focus();
-      }
-    }
-
-    qwenForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      const text = qwenInput.value.trim();
-
-      if (!text || !qwenGenerator) return;
-
-      qwenAddMessage("user", text);
-
-      qwenInput.value = "";
-      qwenInput.style.height = "48px";
-
-      await qwenGenerate(text);
-    });
-
-    qwenInput.addEventListener("input", () => {
-      qwenInput.style.height = "48px";
-      qwenInput.style.height =
-        Math.min(qwenInput.scrollHeight, 140) + "px";
-    });
-
-    qwenInput.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault();
-        qwenForm.requestSubmit();
-      }
-    });
-
-    qwenClear.addEventListener("click", () => {
-      qwenMessages = [
-        {
-          role: "system",
-          content:
-            "Você é o assistente virtual da Kiv Studio. " +
-            "Responda sempre em português do Brasil, de forma clara, " +
-            "prestativa e concisa. A Kiv Studio é um estúdio de design " +
-            "voltado para mulheres microempreendedoras."
-        }
-      ];
-
-      qwenChat.innerHTML = "";
-      qwenChat.appendChild(qwenWelcome);
-
-      qwenWelcome.style.display = "block";
-      qwenInput.value = "";
-      qwenInput.focus();
-    });
-
-    qwenLoadModel();
-  </script>
-
-  <!-- JavaScript -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="js/ia.js"></script>
   <script src="js/tipografia.js"></script>
-
 </body>
 
 </html>

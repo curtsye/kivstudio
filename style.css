@@ -1,609 +1,920 @@
-ss/* =========================================================
-   TÓPICO 5 — TIPOGRAFIA
-   Hierarquia tipográfica completa
-   ========================================================= */
-
-
-/* =========================================================
-   1. RESET
-   ========================================================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-
-/* =========================================================
-   2. VARIÁVEIS
-   ========================================================= */
+/* =====================================================
+   1. CONFIGURAÇÕES GERAIS E RESPONSIVIDADE BASE
+   ===================================================== */
 
 :root {
-
-    /* CORES */
-
-    --background: #f8f9fa;
-    --surface: #ffffff;
-
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-
-    --accent: #2563eb;
-    --accent-dark: #1d4ed8;
-
-    --border: #e2e8f0;
-
-
-    /* =====================================================
-       FAMÍLIAS TIPOGRÁFICAS
-       ===================================================== */
-
-    /* Títulos */
-    --font-heading: 'Montserrat', sans-serif;
-
-    /* Textos */
-    --font-body: 'Merriweather', Georgia, serif;
-
-
-    /* =====================================================
-       ESCALA TIPOGRÁFICA
-       ===================================================== */
-
-    --scale: 1;
-
-    /* CAPTION */
-    --font-caption: calc(0.8rem * var(--scale));
-
-    /* BODY */
-    --font-body-size: calc(1rem * var(--scale));
-
-    /* H3 */
-    --font-h3: calc(1.563rem * var(--scale));
-
-    /* H2 */
-    --font-h2: calc(1.953rem * var(--scale));
-
-    /* H1 */
-    --font-h1: calc(2.441rem * var(--scale));
-
-
-    /* =====================================================
-       LINE HEIGHT
-       ===================================================== */
-
-    --line-heading: 1.2;
-    --line-body: 1.6;
+  --primary: #E44C72;
+  --secondary: #FFAF22;
+  --success: #8DCD0C;
+  --info: #720CCB;
+  --body-bg: #FFEEDC;
+  --body-color: #2D323B;
+  --dark: #2D323B;
+  --light: #fdf5ec;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* =========================================================
-   3. BODY
-   ========================================================= */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-
-    font-family: var(--font-body);
-
-    font-size: var(--font-body-size);
-
-    line-height: var(--line-body);
-
-    color: var(--text-primary);
-
-    background: var(--background);
+  background: var(--body-bg);
+  color: var(--body-color);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding-top: 80px;
 }
 
-
-/* =========================================================
-   4. CONTAINER
-   ========================================================= */
-
-.container {
-
-    width: 90%;
-
-    max-width: 860px;
-
-    margin: 0 auto;
+/* Imagens e Mídias Fluidas */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-
-/* =========================================================
-   5. HIERARQUIA TIPOGRÁFICA
-   ========================================================= */
-
-
-/*
-    H1
-    MAIOR ELEMENTO
-    39px aproximadamente
-*/
-
-h1 {
-
-    font-family: var(--font-heading);
-
-    font-size: var(--font-h1);
-
-    font-weight: 800;
-
-    line-height: var(--line-heading);
-
-    letter-spacing: -0.02em;
-
-    color: var(--text-primary);
-
-    margin-bottom: 1rem;
+section[id], footer[id] {
+  scroll-margin-top: 85px;
 }
 
-
-/*
-    H2
-    SEGUNDO NÍVEL
-    31px aproximadamente
-*/
-
-h2 {
-
-    font-family: var(--font-heading);
-
-    font-size: var(--font-h2);
-
-    font-weight: 700;
-
-    line-height: var(--line-heading);
-
-    color: var(--text-primary);
-
-    margin-bottom: 1rem;
+h1, h2, h3 {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
+/* =====================================================
+   2. NAVBAR RESPONSIVA
+   ===================================================== */
 
-/*
-    H3
-    TERCEIRO NÍVEL
-    25px aproximadamente
-*/
-
-h3 {
-
-    font-family: var(--font-heading);
-
-    font-size: var(--font-h3);
-
-    font-weight: 600;
-
-    line-height: var(--line-heading);
-
-    color: var(--text-primary);
-
-    margin-top: 2rem;
-
-    margin-bottom: 1rem;
+.navbar-custom {
+  background: var(--body-bg);
+  border-bottom: 3px solid var(--dark);
+  padding: 0.8rem 0;
 }
 
-
-/*
-    BODY
-    TEXTO NORMAL
-    16px
-*/
-
-p {
-
-    font-family: var(--font-body);
-
-    font-size: var(--font-body-size);
-
-    line-height: var(--line-body);
-
-    margin-bottom: 1.25rem;
+.navbar-brand {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: var(--dark) !important;
 }
 
-
-/*
-    CAPTION
-    TEXTO PEQUENO
-*/
-
-.meta,
-.demo-caption {
-
-    font-family: var(--font-heading);
-
-    font-size: var(--font-caption);
-
-    color: var(--text-secondary);
+.navbar-brand span {
+  color: var(--primary);
 }
 
-
-/* =========================================================
-   6. HEADER
-   ========================================================= */
-
-.header {
-
-    background: var(--surface);
-
-    padding: 4rem 0;
-
-    border-bottom: 1px solid var(--border);
-
-    margin-bottom: 2rem;
+.nav-link {
+  font-weight: 600;
+  color: var(--dark) !important;
+  margin: 0 .35rem;
 }
 
-
-/*
-    TAGLINE
-    Texto pequeno usado como identificação
-*/
-
-.tagline {
-
-    font-family: var(--font-heading);
-
-    font-size: var(--font-caption);
-
-    font-weight: 700;
-
-    letter-spacing: 0.1em;
-
-    color: var(--accent);
-
-    margin-bottom: 0.75rem;
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary) !important;
 }
 
-
-/*
-    LEAD
-    Texto um pouco maior que o corpo
-*/
-
-.lead {
-
-    font-family: var(--font-body);
-
-    font-size: calc(1.15rem * var(--scale));
-
-    line-height: 1.5;
-
-    color: var(--text-secondary);
-
-    max-width: 700px;
+.btn-nav {
+  background: var(--dark);
+  color: white;
+  font-weight: 700;
+  border-radius: 50px;
+  padding: .5rem 1.3rem;
+  border: 2px solid var(--dark);
 }
 
+.btn-nav:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
 
-/* =========================================================
-   7. PAINEL DE CONTROLE
-   ========================================================= */
+/* =====================================================
+   3. HERO SECTION
+   ===================================================== */
+
+.hero {
+  padding: clamp(2.5rem, 6vw, 5rem) 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 75vh;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw + 0.5rem, 4.2rem);
+  line-height: 1.1;
+}
+
+.highlight {
+  background: var(--primary);
+  color: white;
+  padding: 0 .3rem;
+  border-radius: 6px;
+}
+
+.hero p {
+  max-width: 600px;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: #4a3f52;
+}
+
+.btn-primary-custom {
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  padding: .85rem 1.8rem;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 4px 4px 0 var(--dark);
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+.btn-primary-custom:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-secondary-custom {
+  background: transparent;
+  color: var(--dark);
+  font-weight: 700;
+  padding: .8rem 1.6rem;
+  border-radius: 50px;
+  border: 2px solid var(--dark);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-secondary-custom:hover {
+  background: var(--dark);
+  color: white;
+}
+
+/* =====================================================
+   4. PERFIL
+   ===================================================== */
+
+#perfil {
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  background: var(--light);
+}
+
+.perfil-card {
+  height: 100%;
+  margin: 0 auto;
+  background: white;
+  border: 3px solid var(--dark);
+  border-radius: 24px;
+  padding: 1.8rem;
+  box-shadow: 7px 7px 0 var(--dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.perfil-topo {
+  text-align: center;
+}
+
+.foto-perfil {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1.2rem;
+  border-radius: 50%;
+  background: var(--secondary);
+  border: 3px solid var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.perfil-nome {
+  font-size: 1.6rem;
+  margin-bottom: .3rem;
+}
+
+.perfil-descricao {
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+.perfil-info {
+  background: var(--body-bg);
+  border-radius: 14px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  padding: .5rem 0;
+  border-bottom: 1px solid #ddd;
+  word-break: break-word;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.perfil-botao {
+  width: 100%;
+  padding: .8rem;
+  border: none;
+  border-radius: 50px;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  margin-top: auto;
+}
+
+.perfil-botao:hover {
+  background: var(--dark);
+}
+
+/* =====================================================
+   5. SERVIÇOS
+   ===================================================== */
+
+#servicos {
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  background: var(--body-bg);
+}
+
+.servico-card {
+  height: 100%;
+  background: white;
+  border: 3px solid var(--dark);
+  border-radius: 24px;
+  padding: 1.8rem;
+  box-shadow: 7px 7px 0 var(--dark);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.servico-card:hover {
+  transform: translateY(-4px);
+}
+
+.servico-icone {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--secondary);
+  border: 2px solid var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.servico-titulo {
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+  color: var(--dark);
+}
+
+.servico-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.servico-lista li {
+  padding: .4rem 0;
+  font-size: .95rem;
+  color: #4a3f52;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.servico-lista li::before {
+  content: "✦";
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.servico-rodape {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  border-top: 2px dashed var(--dark);
+}
+
+.servico-preco-label {
+  font-size: .8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .05em;
+  color: #777;
+}
+
+.servico-preco {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: .2rem;
+}
+
+.servico-obs {
+  font-size: .8rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* =====================================================
+   6. ARTIGO & HIERARQUIA TIPOGRÁFICA
+   ===================================================== */
+
+#artigo {
+  padding: clamp(3rem, 6vw, 6rem) 0;
+}
 
 .controls-card {
-
-    background: #eff6ff;
-
-    border: 1px solid #bfdbfe;
-
-    border-radius: 10px;
-
-    padding: 1.5rem;
-
-    margin-bottom: 3rem;
+  background: var(--light);
+  border: 3px solid var(--dark);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 5px 5px 0 var(--dark);
 }
 
-
-.control-title {
-
-    font-family: var(--font-heading);
-
-    font-size: 1.25rem;
-
-    margin-bottom: 0.5rem;
+.article-card {
+  background: white;
+  border: 3px solid var(--dark);
+  border-radius: 24px;
+  padding: clamp(1.2rem, 4vw, 2.5rem);
+  box-shadow: 7px 7px 0 var(--dark);
 }
 
-
-.control-desc {
-
-    font-family: var(--font-heading);
-
-    font-size: 0.9rem;
-
-    color: var(--text-secondary);
-
-    margin-bottom: 1rem;
+.badge-custom {
+  display: inline-block;
+  background: var(--secondary);
+  color: var(--dark);
+  font-weight: 700;
+  font-size: .8rem;
+  padding: .3rem .8rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
 }
-
-
-/* =========================================================
-   8. BOTÕES
-   ========================================================= */
-
-.button-group {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 0.75rem;
-}
-
-
-.btn {
-
-    font-family: var(--font-heading);
-
-    font-size: 0.875rem;
-
-    font-weight: 600;
-
-    padding: 0.7rem 1.2rem;
-
-    border-radius: 6px;
-
-    border: none;
-
-    cursor: pointer;
-}
-
-
-.btn-primary {
-
-    background: var(--accent);
-
-    color: white;
-}
-
-
-.btn-primary:hover {
-
-    background: var(--accent-dark);
-}
-
-
-.btn-secondary {
-
-    background: #475569;
-
-    color: white;
-}
-
-
-.btn-outline {
-
-    background: transparent;
-
-    border: 1px solid #94a3b8;
-
-    color: var(--text-primary);
-}
-
-
-/* =========================================================
-   9. ARTIGO
-   ========================================================= */
-
-.article {
-
-    background: var(--surface);
-
-    border: 1px solid var(--border);
-
-    border-radius: 10px;
-
-    padding: 2.5rem;
-}
-
-
-/* =========================================================
-   10. CABEÇALHO DO ARTIGO
-   ========================================================= */
-
-.article-header {
-
-    border-bottom: 2px solid var(--border);
-
-    padding-bottom: 1.5rem;
-
-    margin-bottom: 2rem;
-}
-
-
-/*
-    BADGE
-    Pequena informação complementar
-*/
-
-.badge {
-
-    display: inline-block;
-
-    font-family: var(--font-heading);
-
-    font-size: var(--font-caption);
-
-    font-weight: 700;
-
-    background: #dbeafe;
-
-    color: var(--accent);
-
-    padding: 0.3rem 0.6rem;
-
-    border-radius: 5px;
-
-    margin-bottom: 0.75rem;
-}
-
-
-/* =========================================================
-   11. TEXTO DO ARTIGO
-   ========================================================= */
-
-.article-body p {
-
-    margin-bottom: 1.5rem;
-}
-
-
-.article-body strong {
-
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   12. EXEMPLO VISUAL DA HIERARQUIA
-   ========================================================= */
 
 .hierarchy-demo {
-
-    background: #f8fafc;
-
-    border-left: 5px solid var(--accent);
-
-    padding: 2rem;
-
-    margin: 2rem 0;
+  background: var(--body-bg);
+  border: 2px dashed var(--dark);
+  border-radius: 16px;
+  padding: 1.2rem;
+  margin: 2rem 0;
 }
-
-
-/*
-    RÓTULO PEQUENO
-*/
 
 .demo-label {
-
-    font-family: var(--font-heading);
-
-    font-size: var(--font-caption);
-
-    font-weight: 700;
-
-    color: var(--accent);
-
-    margin-bottom: 1rem;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
+.demo-h1 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; }
+.demo-h2 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 700; }
+.demo-h3 { font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 600; }
+.demo-body { font-size: 1rem; }
+.demo-caption { font-size: .85rem; color: #666; }
 
-/*
-    H1 DO EXEMPLO
-*/
+/* =====================================================
+   7. EXERCÍCIO — DASHBOARD RESPONSIVO
+   ===================================================== */
 
-.demo-h1 {
-
-    font-size: var(--font-h1);
-
-    margin-bottom: 1rem;
+#dashboard-exercicio {
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  background: var(--light);
 }
 
-
-/*
-    H2 DO EXEMPLO
-*/
-
-.demo-h2 {
-
-    font-size: var(--font-h2);
-
-    margin-bottom: 1rem;
+.dashboard-grid-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: white;
+  border: 3px solid var(--dark);
+  border-radius: 24px;
+  box-shadow: 7px 7px 0 var(--dark);
+  overflow: hidden;
 }
 
-
-/*
-    H3 DO EXEMPLO
-*/
-
-.demo-h3 {
-
-    font-size: var(--font-h3);
-
-    margin-bottom: 1rem;
+.dash-sidebar {
+  background-color: var(--dark);
+  color: white;
+  padding: 2rem 1.5rem;
+  border-right: 3px solid var(--dark);
 }
 
-
-/*
-    BODY DO EXEMPLO
-*/
-
-.demo-body {
-
-    font-size: var(--font-body-size);
-
-    line-height: var(--line-body);
+.dash-sidebar h3 {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: var(--secondary);
 }
 
-
-/*
-    CAPTION DO EXEMPLO
-*/
-
-.demo-caption {
-
-    font-size: var(--font-caption);
-
-    color: var(--text-secondary);
+.dash-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
+.dash-sidebar a {
+  color: #94a3b8;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
 
-/* =========================================================
+.dash-sidebar a:hover, 
+.dash-sidebar a.active {
+  background-color: var(--primary);
+  color: white;
+}
+
+.dash-main {
+  padding: 2rem;
+  background-color: #fffaf5;
+}
+
+.dash-card {
+  background: white;
+  border: 2px solid var(--dark);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 4px 4px 0 var(--dark);
+  height: 100%;
+}
+
+.dash-card-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+}
+
+.dash-card-value {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.dash-chart-card {
+  background: white;
+  border: 2px solid var(--dark);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 4px 4px 0 var(--dark);
+}
+
+.dash-chart-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 2px solid var(--dark);
+}
+
+/* =====================================================
+   8. HIERARQUIA VISUAL (PRODUTO)
+   ===================================================== */
+
+#topico6-hierarquia {
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  background: var(--body-bg);
+}
+
+.hierarchy-product-card {
+  background: white;
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(1.2rem, 4vw, 2rem);
+  border-radius: 24px;
+  border: 3px solid var(--dark);
+  box-shadow: 7px 7px 0 var(--dark);
+}
+
+.hierarchy-product-card .product-tag {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: .35rem .85rem;
+  border-radius: 6px;
+  font-size: .75rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hierarchy-product-card .product-title {
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: .5rem;
+}
+
+.hierarchy-product-card .product-price {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--success);
+  margin-bottom: .6rem;
+}
+
+.hierarchy-product-card .old-price {
+  font-size: 1rem;
+  color: #8a93a3;
+  text-decoration: line-through;
+  font-weight: 400;
+  margin-left: .4rem;
+}
+
+.hierarchy-product-card .product-description {
+  color: #697386;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.hierarchy-product-card .product-button {
+  width: 100%;
+  background: var(--info);
+  color: white;
+  border: 0;
+  padding: .9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* =====================================================
+   9. PALETA DE CORES
+   ===================================================== */
+
+#topico7-cores {
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  background: var(--light);
+}
+
+.color-palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.color-swatch {
+  height: 120px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  border: 3px solid var(--dark);
+  box-shadow: 4px 4px 0 var(--dark);
+  padding: .5rem;
+  font-size: 0.9rem;
+}
+
+.color-swatch.primary { background: var(--primary); }
+.color-swatch.secondary { background: var(--secondary); color: var(--dark); }
+.color-swatch.success { background: var(--success); color: var(--dark); }
+.color-swatch.warning { background: #EAB308; color: #333; }
+.color-swatch.danger { background: #EF4444; }
+.color-swatch.neutral { background: #6B7280; }
+
+.palette-note {
+  max-width: 700px;
+  margin: 1.5rem auto 0;
+  text-align: center;
+  color: #697386;
+}
+
+/* =====================================================
+   10. PROJETOS
+   ===================================================== */
+
+#projetos {
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  background: var(--light);
+}
+
+.section-label {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--primary);
+}
+
+.card-projeto {
+  height: 100%;
+  background: white;
+  border: 3px solid var(--dark);
+  border-radius: 20px;
+  padding: 1.6rem;
+  box-shadow: 5px 5px 0 var(--dark);
+  transition: transform .2s ease;
+}
+
+.card-projeto:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--dark);
+}
+
+.tag {
+  display: inline-block;
+  background: var(--secondary);
+  color: var(--dark);
+  font-weight: 700;
+  font-size: .75rem;
+  padding: .25rem .7rem;
+  border-radius: 50px;
+  margin-bottom: .8rem;
+}
+
+/* =====================================================
+   11. CHAT IA QWEN
+   ===================================================== */
+
+#ia-qwen {
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  background: var(--light);
+}
+
+.qwen-card {
+  background: white;
+  border: 3px solid var(--dark);
+  border-radius: 24px;
+  box-shadow: 7px 7px 0 var(--dark);
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.qwen-header {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 2px solid #e7eaf0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.qwen-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+#qwen-status {
+  padding: .65rem 1rem;
+  background: #f8f9fb;
+  border-bottom: 1px solid #e7eaf0;
+  color: #697386;
+  font-size: .85rem;
+}
+
+#qwen-status.ready { color: #26734d; }
+#qwen-status.error { color: #b42318; }
+
+#qwen-chat {
+  height: clamp(300px, 50vh, 420px);
+  overflow-y: auto;
+  padding: 1.2rem;
+  scroll-behavior: smooth;
+  background: #fff;
+}
+
+.qwen-welcome {
+  max-width: 620px;
+  margin: 2rem auto;
+  text-align: center;
+  color: #697386;
+}
+
+.qwen-message {
+  display: flex;
+  margin: 0 auto 1rem;
+  max-width: 760px;
+}
+
+.qwen-message.user {
+  justify-content: flex-end;
+}
+
+.qwen-bubble {
+  max-width: 85%;
+  padding: .75rem .95rem;
+  border-radius: 16px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.qwen-message.assistant .qwen-bubble {
+  background: #f0f2f6;
+  border-bottom-left-radius: 5px;
+}
+
+.qwen-message.user .qwen-bubble {
+  background: var(--dark);
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+#qwen-typing {
+  display: none;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.2rem .75rem;
+  color: #697386;
+  font-size: .85rem;
+}
+
+#qwen-form {
+  padding: 1rem;
+  border-top: 1px solid #e7eaf0;
+  background: white;
+}
+
+.qwen-input-wrap {
+  max-width: 760px;
+  margin: auto;
+  display: flex;
+  gap: .6rem;
+  align-items: flex-end;
+}
+
+#qwen-input {
+  flex: 1;
+  resize: none;
+  min-height: 48px;
+  max-height: 140px;
+  border: 2px solid #d9dee7;
+  border-radius: 13px;
+  padding: .8rem .9rem;
+  font: inherit;
+  outline: none;
+  background: white;
+}
+
+#qwen-send, #qwen-clear {
+  height: 48px;
+  border: 0;
+  border-radius: 12px;
+  padding: 0 1rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+#qwen-send {
+  background: var(--dark);
+  color: white;
+}
+
+#qwen-clear {
+  background: white;
+  color: var(--dark);
+  border: 2px solid var(--dark);
+}
+
+.qwen-footnote {
+  max-width: 760px;
+  margin: .5rem auto 0;
+  font-size: .75rem;
+  color: #8a93a3;
+}
+
+/* =====================================================
+   12. CONTATO
+   ===================================================== */
+
+#contato {
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  background: var(--body-bg);
+}
+
+.contato-card {
+  background: white;
+  border: 3px solid var(--dark);
+  border-radius: 24px;
+  padding: clamp(1.2rem, 4vw, 2.5rem);
+  box-shadow: 7px 7px 0 var(--dark);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-label-custom {
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--dark);
+  margin-bottom: .4rem;
+}
+
+.form-control-custom {
+  background: var(--body-bg);
+  border: 2px solid var(--dark);
+  border-radius: 12px;
+  padding: .75rem 1rem;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.form-control-custom:focus {
+  background: white;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.25rem rgba(228, 76, 114, 0.25);
+  outline: none;
+}
+
+/* =====================================================
    13. FOOTER
-   ========================================================= */
+   ===================================================== */
 
-.footer {
+footer {
+  background: var(--dark);
+  color: var(--body-bg);
+  padding: 2rem 0;
+}
 
+footer a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* =====================================================
+   14. MEDIA QUERIES (ADAPTAÇÃO CELULAR / TABLET)
+   ===================================================== */
+
+@media (max-width: 992px) {
+  .dashboard-grid-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-sidebar {
+    border-right: none;
+    border-bottom: 3px solid var(--dark);
+  }
+
+  .dash-sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 75px;
+  }
+
+  .btn-primary-custom, .btn-secondary-custom {
+    width: 100%;
     text-align: center;
+  }
 
-    padding: 2rem 0;
+  .button-group {
+    flex-direction: column;
+  }
 
-    margin-top: 3rem;
+  .button-group button {
+    width: 100%;
+  }
 
-    border-top: 1px solid var(--border);
-}
+  .qwen-bubble {
+    max-width: 90%;
+  }
 
+  .qwen-input-wrap {
+    flex-wrap: wrap;
+  }
 
-.footer p {
+  #qwen-input {
+    flex-basis: 100%;
+  }
 
-    font-family: var(--font-heading);
-
-    font-size: var(--font-caption);
-
-    color: var(--text-secondary);
-}
-
-
-/* =========================================================
-   14. RESPONSIVIDADE
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-    h1 {
-
-        font-size: 2rem;
-    }
-
-    h2 {
-
-        font-size: 1.6rem;
-    }
-
-    h3 {
-
-        font-size: 1.3rem;
-    }
-
-    .article {
-
-        padding: 1.5rem;
-    }
-
-    .button-group {
-
-        flex-direction: column;
-    }
-
-    .btn {
-
-        width: 100%;
-    }
+  #qwen-send {
+    flex: 1;
+  }
 }
