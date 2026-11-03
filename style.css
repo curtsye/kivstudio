@@ -918,3 +918,50 @@ footer a {
     flex: 1;
   }
 }
+/* KIV STUDIO — edição editorial / minimalista (Zara × Apple) */
+:root { --scale:1; }
+body {font-family:'Inter',sans-serif;letter-spacing:-.012em;background:var(--body-bg);}
+.container {max-width:1240px;}
+.navbar-custom {background:rgba(255,238,220,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(45,50,59,.13);padding:1.1rem 0;}
+.navbar-brand {font-family:'Merriweather',serif;font-size:1.65rem;letter-spacing:-.075em;}
+.nav-link {font-size:.77rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;margin:0 .28rem;}
+.btn-nav {border-radius:3px;border-width:1px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;}
+h1,h2,h3 {font-family:'Merriweather',Georgia,serif;font-weight:400;letter-spacing:-.055em;}
+h2 {font-size:clamp(2.4rem,4.6vw,4.6rem);line-height:1.13;}
+.section-label {font-family:'Inter',sans-serif!important;font-size:.72rem!important;font-weight:700!important;letter-spacing:.22em!important;text-transform:uppercase;}
+section[id] {scroll-margin-top:95px;}
+.hero {min-height:82vh;padding:clamp(6rem,12vw,11rem) 0;background:radial-gradient(ellipse at 84% 28%,rgba(228,76,114,.13),transparent 40%),var(--body-bg);}
+.hero-content {max-width:1080px;}
+.hero h1 {font-family:'Merriweather',Georgia,serif;font-weight:400;font-size:clamp(3.2rem,7.6vw,7.4rem);line-height:1.13;letter-spacing:-.075em;max-width:1050px;}
+.hero .highlight {background:none;color:var(--primary);padding:0;font-style:italic;font-weight:400;}
+.hero p:not(.section-label) {max-width:590px;color:var(--dark);opacity:.77;line-height:1.85;}
+.btn-primary-custom,.btn-secondary-custom {border-radius:3px;box-shadow:none;padding:1rem 1.75rem;font-size:.78rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:background .2s,color .2s,transform .2s;}
+.btn-primary-custom {background:var(--dark);color:white;}
+.btn-primary-custom:hover {background:var(--primary);}
+.btn-secondary-custom {border:1px solid var(--dark);}
+#perfil,#servicos,#artigo,#dashboard-exercicio,#projetos,#ia-qwen,#contato,#topico6-hierarquia,#topico7-cores {padding:clamp(5rem,9vw,9rem) 0;}
+#perfil {background:#fdf5ec;}
+#servicos {background:var(--body-bg);}
+.perfil-card,.servico-card,.article-card,.controls-card,.dash-card,.dash-chart-card,.dashboard-grid-layout {border:1px solid rgba(45,50,59,.13);border-radius:5px;box-shadow:0 16px 48px rgba(45,50,59,.045);background:#fffdf9;}
+.perfil-card,.servico-card {padding:clamp(1.7rem,3vw,2.8rem);transition:transform .25s ease,box-shadow .25s ease;}
+.perfil-card:hover,.servico-card:hover {transform:translateY(-5px);box-shadow:0 24px 52px rgba(45,50,59,.09);}
+.perfil-nome,.servico-titulo {font-family:'Merriweather',Georgia,serif;font-size:1.6rem;font-weight:400;}
+.foto-perfil {background:rgba(228,76,114,.12);border:0;border-radius:50%;}
+.perfil-info {background:var(--body-bg);border-radius:3px;}
+.perfil-botao {background:var(--dark);border-radius:3px;font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;}
+.servico-icone {border:0;border-radius:3px;background:rgba(255,175,34,.2);}
+.servico-rodape {border-top:1px solid rgba(45,50,59,.18);}
+.servico-preco {font-family:'Inter',sans-serif;font-weight:600;letter-spacing:-.04em;}
+.badge-custom {border-radius:2px;background:rgba(255,175,34,.28);letter-spacing:.13em;}
+.hierarchy-demo {border:1px solid rgba(45,50,59,.15);border-radius:3px;}
+.dash-sidebar {border:0;}
+.dash-card,.dash-chart-card {box-shadow:none;}
+#projetos .projeto-card,#projetos .project-card {border-radius:4px;box-shadow:none;}
+button,input,textarea {font-family:'Inter',sans-serif;}
+:focus-visible {outline:3px solid var(--info)!important;outline-offset:3px;}
+.article-body {font-size:calc(1rem * var(--scale));line-height:1.85;}
+.article-body p,.article-body li {font-size:inherit;}
+.article-body h3 {font-size:calc(1.35rem * var(--scale));}
+@media(max-width:991px){.navbar-collapse {padding:1rem 0;}.nav-link {padding:.65rem 0;}.hero {min-height:65vh;}.hero h1 {font-size:clamp(2.8rem,9vw,5rem);}}
+@media(max-width:600px){.hero {padding:5rem 0;}.hero h1 {font-size:clamp(2.7rem,12vw,4rem);}.btn-primary-custom,.btn-secondary-custom {padding:.9rem 1.1rem;} .perfil-card,.servico-card {padding:1.6rem;}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;}}
